@@ -40,7 +40,6 @@ export const GiftRegistrySection: React.FC<GiftRegistrySectionProps> = ({
 };
 
 // src/components/cards/GiftCard.tsx
-import React from 'react';
 import { Button, Card } from '@/components/ui';
 import { GiftItem } from '@/types';
 

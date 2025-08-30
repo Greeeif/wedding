@@ -1,89 +1,24 @@
 // src/app/page.tsx
-'use client';
-
-import React, { useState } from 'react';
-import { Navigation } from '@/components/layout/Navigation';
-import { HeroSection } from '@/components/sections/HeroSection';
-import { DetailsSection } from '@/components/sections/DetailsSection';
-import { RSVPSection } from '@/components/sections/RSVPSection';
-import { GiftRegistrySection } from '@/components/sections/GiftRegistrySection';
-import { MenuSection } from '@/components/sections/MenuSection';
-import { Footer } from '@/components/layout/Footer';
-import { useScrollPosition, useRSVP, useGiftRegistry } from '@/hooks';
-import { WeddingDetails, ContactInfo } from '@/types';
-
-// Wedding data - in a real app, this might come from a CMS or database
-const weddingDetails: WeddingDetails = {
-  coupleNames: {
-    bride: 'Sarah',
-    groom: 'James'
-  },
-  date: 'September 15th, 2024',
-  time: '4:00 PM',
-  venue: {
-    name: 'Vineyard Estate, Napa Valley',
-    address: '1234 Wine Country Road, Napa Valley, CA',
-    ceremonyLocation: 'Vineyard Estate Gardens',
-    receptionLocation: 'Grand Ballroom'
-  },
-  rsvpDeadline: 'August 1st, 2024',
-  dressCode: 'Cocktail attire requested. Think garden party elegance - florals, pastels, and comfortable shoes for dancing!'
-};
-
-const contactInfo: ContactInfo = {
-  email: 'sarah.james.wedding@email.com',
-  phone: '(555) 123-4567'
-};
-
-const WeddingInvitationPage: React.FC = () => {
-  const [currentSection, setCurrentSection] = useState('hero');
-  const isScrolled = useScrollPosition();
-  const { submitRSVP, loading: rsvpLoading } = useRSVP();
-  const { gifts, purchaseGift, loading: giftsLoading } = useGiftRegistry();
-
-  const scrollToSection = (sectionId: string) => {
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
-    setCurrentSection(sectionId);
-  };
-
-  const handleRSVPClick = () => {
-    scrollToSection('rsvp');
-  };
-
+export default function WeddingPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-rose-50 via-white to-pink-50">
-      <Navigation
-        currentSection={currentSection}
-        isScrolled={isScrolled}
-        onSectionClick={scrollToSection}
-      />
-
-      <HeroSection
-        weddingDetails={weddingDetails}
-        onRSVPClick={handleRSVPClick}
-      />
-
-      <DetailsSection weddingDetails={weddingDetails} />
-
-      <RSVPSection
-        onRSVPSubmit={submitRSVP}
-        loading={rsvpLoading}
-        deadline={weddingDetails.rsvpDeadline}
-      />
-
-      <GiftRegistrySection
-        gifts={gifts}
-        onGiftPurchase={purchaseGift}
-      />
-
-      <MenuSection />
-
-      <Footer
-        coupleNames={weddingDetails.coupleNames}
-        contactInfo={contactInfo}
-      />
+    <div className="min-h-screen bg-gradient-to-br from-rose-50 via-white to-pink-50 flex items-center justify-center">
+      <div className="text-center px-6">
+        <h1 className="text-6xl md:text-8xl font-light text-gray-800 mb-4 tracking-tight">
+          Sarah & James
+        </h1>
+        <div className="w-32 h-px bg-gradient-to-r from-transparent via-rose-300 to-transparent mx-auto mb-6"></div>
+        <p className="text-xl md:text-2xl text-gray-600 mb-8 font-light">
+          Together with our families, we invite you to celebrate our love
+        </p>
+        <div className="space-y-2 text-lg text-gray-700 mb-12">
+          <p>September 15th, 2024</p>
+          <p>4:00 PM</p>
+          <p>Vineyard Estate, Napa Valley</p>
+        </div>
+        <button className="bg-gradient-to-r from-rose-500 to-pink-500 text-white px-8 py-4 rounded-full font-medium text-lg hover:from-rose-600 hover:to-pink-600 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl">
+          RSVP Now
+        </button>
+      </div>
     </div>
   );
-};
-
-export default WeddingInvitationPage;
+}
