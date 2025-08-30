@@ -77,7 +77,7 @@ export const RSVPForm: React.FC<RSVPFormProps> = ({ onSubmit, loading = false })
           label="Full Name *"
           type="text"
           value={formData.name}
-          onChange={(e) => updateField('name', e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateField('name', e.target.value)}
           error={errors.name}
           disabled={loading}
         />
@@ -86,7 +86,7 @@ export const RSVPForm: React.FC<RSVPFormProps> = ({ onSubmit, loading = false })
           label="Email *"
           type="email"
           value={formData.email}
-          onChange={(e) => updateField('email', e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateField('email', e.target.value)}
           error={errors.email}
           disabled={loading}
         />
@@ -113,7 +113,7 @@ export const RSVPForm: React.FC<RSVPFormProps> = ({ onSubmit, loading = false })
           </Button>
         </div>
         {errors.attending && (
-          <p className="mt-2 text-sm text-red-600">{errors.attending as string}</p>
+          <p className="mt-2 text-sm text-red-600">{errors.attending}</p>
         )}
       </div>
 
@@ -125,7 +125,7 @@ export const RSVPForm: React.FC<RSVPFormProps> = ({ onSubmit, loading = false })
             </label>
             <select
               value={formData.guests}
-              onChange={(e) => updateField('guests', parseInt(e.target.value))}
+              onChange={(e: React.ChangeEvent<HTMLSelectElement>) => updateField('guests', parseInt(e.target.value))}
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent"
               disabled={loading}
             >
@@ -140,7 +140,7 @@ export const RSVPForm: React.FC<RSVPFormProps> = ({ onSubmit, loading = false })
             </label>
             <textarea
               value={formData.dietaryRestrictions}
-              onChange={(e) => updateField('dietaryRestrictions', e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => updateField('dietaryRestrictions', e.target.value)}
               placeholder="Please let us know about any dietary restrictions or allergies..."
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent h-24 resize-none"
               disabled={loading}
@@ -155,7 +155,7 @@ export const RSVPForm: React.FC<RSVPFormProps> = ({ onSubmit, loading = false })
         </label>
         <textarea
           value={formData.message}
-          onChange={(e) => updateField('message', e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => updateField('message', e.target.value)}
           placeholder="Share your well wishes..."
           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent h-24 resize-none"
           disabled={loading}
