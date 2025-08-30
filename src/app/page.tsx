@@ -4,7 +4,7 @@ export default function WeddingPage() {
     <div className="min-h-screen bg-gradient-to-br from-rose-50 via-white to-pink-50 flex items-center justify-center">
       <div className="text-center px-6">
         <h1 className="text-6xl md:text-8xl font-light text-gray-800 mb-4 tracking-tight">
-          Sarah & James
+          Yarah & Alex
         </h1>
         <div className="w-32 h-px bg-gradient-to-r from-transparent via-rose-300 to-transparent mx-auto mb-6"></div>
         <p className="text-xl md:text-2xl text-gray-600 mb-8 font-light">
