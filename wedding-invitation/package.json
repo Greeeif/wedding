@@ -6,7 +6,7 @@
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
-    "lint": "esl",
+    "lint": "next lint",
     "type-check": "tsc --noEmit",
     "db:init": "node -e \"require('./src/lib/db.ts').initDatabase()\"",
     "db:seed": "node scripts/seed.js"
@@ -15,25 +15,25 @@
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "next": "15.5.2",
-    "@vercel/postgres": "^0.5.0",
-    "resend": "^2.0.0",
-    "lucide-react": "^0.263.1",
-    "zod": "^3.22.0",
-    "react-hook-form": "^7.47.0",
-    "@hookform/resolvers": "^3.3.0",
-    "zustand": "^4.4.0"
+    "@vercel/postgres": "^0.10.0",
+    "resend": "^4.0.0",
+    "lucide-react": "^0.468.0",
+    "zod": "^3.24.1",
+    "react-hook-form": "^7.56.1",
+    "@hookform/resolvers": "^3.10.0",
+    "zustand": "^5.0.2"
   },
   "devDependencies": {
-    "@types/node": "^20.0.0",
-    "@types/react": "^18.0.0",
-    "@types/react-dom": "^18.0.0",
-    "typescript": "^5.0.0",
-    "tailwindcss": "^3.3.0",
-    "postcss": "^8.4.0",
-    "autoprefixer": "^10.4.0",
-    "eslint": "^8.0.0",
-    "eslint-config-next": "^14.0.0",
-    "@tailwindcss/forms": "^0.5.0",
-    "@tailwindcss/typography": "^0.5.0"
+    "@types/node": "^22.10.1",
+    "@types/react": "^19.0.2",
+    "@types/react-dom": "^19.0.2",
+    "typescript": "^5.7.2",
+    "tailwindcss": "^3.4.17",
+    "postcss": "^8.5.1",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^9.17.0",
+    "eslint-config-next": "15.5.2",
+    "@tailwindcss/forms": "^0.5.9",
+    "@tailwindcss/typography": "^0.5.15"
   }
 }
