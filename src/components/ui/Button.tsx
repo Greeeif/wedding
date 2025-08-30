@@ -92,7 +92,3 @@ export const Card: React.FC<CardProps> = ({
   );
 };
 
-// src/components/ui/index.ts
-export { Button } from './Button';
-export { Input } from './Input';
-export { Card } from './Card';
