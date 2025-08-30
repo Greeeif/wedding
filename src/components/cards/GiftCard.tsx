@@ -30,3 +30,5 @@ export const GiftCard: React.FC<GiftCardProps> = ({ gift, onPurchase }) => {
     </Card>
   );
 };
+
+export default GiftCard;
