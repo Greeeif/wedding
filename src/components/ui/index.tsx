@@ -9,7 +9,8 @@ export { ImagePlaceholder } from './ImagePlaceholder';
 export { DetailCard } from './DetailCard';
 export { EditorialGrid } from './EditorialGrid';
 export { BlissNavigation } from './BlissNavigation';
-export { SectionHeader } from './SectionHeader';    
+export { SectionHeader } from './SectionHeader';
+export { BlissInput } from './BlissInput';
 
 // Legacy exports for compatibility
 export { Button } from './Button';
