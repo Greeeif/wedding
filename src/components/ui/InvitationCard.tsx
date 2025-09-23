@@ -24,7 +24,7 @@ export const InvitationCard: React.FC<InvitationCardProps> = ({
   className = ''
 }) => {
   return (
-    <div className={`transform hover:scale-105 transition-transform duration-700 ease-out ${className}`}>
+    <div className={`transform hover:scale-150 transition-transform duration-700 ease-out ${className}`}>
       <div className="bg-stone-50/95 backdrop-blur-sm border border-stone-200/50 shadow-2xl shadow-stone-900/10 p-12 md:p-16 max-w-md mx-auto relative">
         {/* Subtle paper texture */}
         <div className="absolute inset-0 bg-gradient-to-br from-white/50 to-stone-100/30 pointer-events-none"></div>

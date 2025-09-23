@@ -20,18 +20,17 @@ const weddingData = {
     bride: "Yarah",
     groom: "Alex"
   },
-  date: "September 15th, 2024",
-  time: "4:00 PM",
+  date: "May 20th, 2027",
+  time: "1:00 PM",
   venue: {
-    name: "Vineyard Estate",
-    location: "Napa Valley, California",
-    description: "A stunning vineyard nestled in the rolling hills of Napa Valley, offering panoramic views of the countryside and an intimate setting for our special day.",
-    address: "1234 Vineyard Lane, Napa Valley, CA 94558",
+    name: "Crowcombe Court",
+    location: "Crowcombe, Taunton, Somerset, TA4 4AD",
+    description: "Crowcombe Court is a magnificent Grade I listed Georgian manor house, nestled in the heart of Somerset on the edge of the breathtaking Quantock Hills.",
+    address: "Crowcombe, Taunton, Somerset, TA4 4AD",
     features: [
-      "Outdoor ceremony pavilion",
-      "Vineyard reception space",
-      "Complimentary parking",
-      "Wheelchair accessible"
+      "Historic Grade I Listed Architecture",
+      "Accommodation available on-site",
+      "Complimentary parking"
     ]
   },
   story: {
