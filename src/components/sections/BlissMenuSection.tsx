@@ -27,7 +27,7 @@ export const BlissMenuSection: React.FC<BlissMenuSectionProps> = ({
       <div className="max-w-6xl mx-auto">
         <SectionHeader 
           title="Reception Menu"
-          subtitle="A curated dining experience prepared by our award-winning chef"
+          subtitle="Enter name of chef / catering company"
           className="mb-16"
         />
 

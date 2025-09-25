@@ -17,7 +17,7 @@ interface BlissRegistrySectionProps {
 
 export const BlissRegistrySection: React.FC<BlissRegistrySectionProps> = ({
   registryItems,
-  message = "Your presence is the greatest gift, but if you wish to honor us with something special, these registries would help us start our journey together.",
+  message = "enter short message about your registry here later / get Yarah to write something",
   className = ''
 }) => {
   return (

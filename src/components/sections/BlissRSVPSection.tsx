@@ -53,7 +53,7 @@ export const BlissRSVPSection: React.FC<BlissRSVPSectionProps> = ({
             <SectionHeader 
               title="Join Us"
               align="left"
-              subtitle="Your presence would make our celebration complete. Please let us know if you can join us for this special day."
+              subtitle="get Yarah to write something sweet here later"
             />
             <p className="text-sm text-stone-500 font-light mt-6">
               Kindly respond by {deadline}

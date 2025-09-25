@@ -36,57 +36,46 @@ const weddingData = {
   story: {
     title: "How We Met",
     paragraphs: [
-      "Our love story began five years ago at a small coffee shop in San Francisco. Alex was reading a book about sustainable architecture, and Yarah couldn't help but notice the passion in his eyes as he sketched building designs in the margins.",
-      "What started as a conversation about green building practices turned into hours of talking about our dreams, travels, and shared love for creating beautiful spaces. From that first meeting, we knew we had found something special.",
-      "Through adventures around the world, late-night design sessions, and quiet Sunday mornings, we've built a love that feels like home. Now, we're ready to start our greatest project yet – a lifetime together."
+      "TBD"
     ]
   },
   menuCategories: [
     {
-      name: "Appetizers",
+      name: "Starters",
       items: [
-        "Truffle Arancini with Wild Mushrooms",
-        "Smoked Salmon Canapés with Dill Cream",
-        "Heirloom Tomato Bruschetta",
-        "Local Cheese & Charcuterie"
+        "TBD"
       ]
     },
     {
       name: "Main Course",
       items: [
-        "Herb-Crusted Rack of Lamb",
-        "Pan-Seared Halibut with Lemon Butter",
-        "Wild Mushroom Wellington (Vegetarian)",
-        "Seasonal Roasted Vegetables"
+        "TBD"
       ]
     },
     {
-      name: "Desserts",
+      name: "Dessert",
       items: [
-        "Wedding Cake - Vanilla Bean & Raspberry",
-        "Chocolate Lava Cake",
-        "Seasonal Fruit Tart",
-        "Local Ice Cream Selection"
+        "TBD"
       ]
     }
   ],
   barService: {
-    title: "Premium Bar Service",
-    description: "Featuring local wines, craft cocktails, and our signature drinks created just for our special day.",
-    cocktails: ["Yarah's Garden Gin Fizz", "Alex's Old Fashioned", "Napa Sunset Spritz"]
+    title: "*Enter type of bar service later once decided.",
+    description: "TBD",
+    cocktails: ["_customCocktail1", "_customCocktail1", "_customCocktail1"]
   },
   registryItems: [
     {
       id: "crate-barrel",
-      store: "Crate & Barrel",
-      url: "https://crateandbarrel.com/gift-registry",
-      description: "Home essentials and beautiful pieces for our first home together."
+      store: "enter name of provider",
+      url: "enter url here",
+      description: "enter description here."
     },
     {
       id: "honeymoon",
       store: "Honeymoon Fund",
       url: "#honeymoon",
-      description: "Help us create unforgettable memories on our European honeymoon adventure."
+      description: "Enter description here."
     }
   ]
 };
