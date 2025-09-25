@@ -1,6 +1,5 @@
 // src/lib/validations.ts
 import { z } from 'zod';
-import { RSVPData, GiftItem } from '@/types';
 
 // RSVP validation schema
 const rsvpSchema = z.object({

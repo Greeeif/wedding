@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
-import { Monogram } from '../ui/Monogram';
 
 interface NavigationItem {
   id: string;
