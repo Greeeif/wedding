@@ -11,3 +11,4 @@ export { InvitationCard } from './InvitationCard';
 export { ImagePlaceholder } from './ImagePlaceholder';
 export { Monogram } from './Monogram';
 export { SectionHeader } from './SectionHeader';
+export { CircularMonogram } from './CircularMonogram';

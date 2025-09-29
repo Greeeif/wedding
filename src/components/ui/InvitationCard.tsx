@@ -1,4 +1,5 @@
 import React from 'react';
+import { CircularMonogram } from './CircularMonogram';
 
 interface InvitationCardProps {
   coupleNames: {
@@ -24,7 +25,7 @@ export const InvitationCard: React.FC<InvitationCardProps> = ({
   className = ''
 }) => {
   return (
-    <div className={`transform hover:scale-150 transition-transform duration-700 ease-out ${className}`}>
+    <div className={`transform hover:scale-105 transition-transform duration-700 ease-out ${className}`}>
       <div className="bg-stone-50/95 backdrop-blur-sm border border-stone-200/50 shadow-2xl shadow-stone-900/10 p-12 md:p-16 max-w-md mx-auto relative">
         {/* Subtle paper texture */}
         <div className="absolute inset-0 bg-gradient-to-br from-white/50 to-stone-100/30 pointer-events-none"></div>
@@ -34,32 +35,25 @@ export const InvitationCard: React.FC<InvitationCardProps> = ({
           {/* Decorative top border */}
           <div className="w-16 h-px bg-stone-400 mx-auto mb-8"></div>
           
-          {/* Monogram */}
+          {/* Header text */}
+          <p className="text-xs font-light tracking-[0.3em] uppercase text-stone-700 mb-8">
+            The honor of your presence is requested<br />at the wedding of
+          </p>
+          
+          {/* Circular Monogram with names and date */}
           <div className="mb-8">
-            <div className="w-16 h-16 mx-auto border border-stone-400 rounded-full flex items-center justify-center mb-3">
-              <span className="text-lg font-serif text-stone-700 tracking-[0.2em]">
-                {coupleNames.bride.charAt(0)}&{coupleNames.groom.charAt(0)}
-              </span>
-            </div>
+            <CircularMonogram
+              bride={coupleNames.bride}
+              groom={coupleNames.groom}
+              date={date}
+              size="md"
+            />
           </div>
 
-          {/* Main invitation text */}
+          {/* Event details */}
           <div className="space-y-6 text-stone-700">
-            <p className="text-xs font-light tracking-[0.3em] uppercase">
-              Together with our families
-            </p>
-            
-            <h1 className="text-3xl md:text-4xl font-serif tracking-wide leading-tight">
-              {coupleNames.bride} & {coupleNames.groom}
-            </h1>
-            
-            <p className="text-xs font-light tracking-[0.2em] uppercase">
-              Request the pleasure of your company
-            </p>
-            
             <div className="py-4">
               <div className="w-12 h-px bg-stone-400 mx-auto mb-4"></div>
-              <p className="text-sm font-light tracking-wide">{date}</p>
               <p className="text-sm font-light tracking-wide">{time}</p>
               <div className="w-12 h-px bg-stone-400 mx-auto mt-4"></div>
             </div>
