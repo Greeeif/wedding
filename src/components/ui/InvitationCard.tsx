@@ -26,9 +26,34 @@ export const InvitationCard: React.FC<InvitationCardProps> = ({
 }) => {
   return (
     <div className={`transform hover:scale-105 transition-transform duration-700 ease-out ${className}`}>
-      <div className="bg-stone-50/95 backdrop-blur-sm border border-stone-200/50 shadow-2xl shadow-stone-900/10 p-12 md:p-16 max-w-md mx-auto relative">
-        {/* Subtle paper texture */}
-        <div className="absolute inset-0 bg-gradient-to-br from-white/50 to-stone-100/30 pointer-events-none"></div>
+      {/* Shadow behind card */}
+      <div className="absolute inset-0 bg-stone-900/20 blur-2xl transform translate-y-8 scale-95 -z-10"></div>
+      
+      <div className="bg-stone-50 border border-stone-300/60 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] p-12 md:p-16 max-w-md mx-auto relative overflow-hidden">
+        
+        {/* Your actual paper texture image*/}
+        <div 
+          className="absolute inset-0 opacity-40 pointer-events-none"
+          style={{
+            backgroundImage: "url('/images/invitationTexture.jpg')",
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            mixBlendMode: 'multiply'
+          }}
+        ></div>
+
+        {/* Botanical image overlay */}
+        <div 
+          className="absolute inset-0 opacity-25 bg-cover bg-center bg-no-repeat pointer-events-none"
+          style={{
+            backgroundImage: "url('/images/cardBotanical.webp')",
+            backgroundPosition: 'right center',
+            mixBlendMode: 'multiply'
+          }}
+        ></div>
+
+        {/* Slight vignette for depth */}
+        <div className="absolute inset-0 shadow-[inset_0_0_60px_rgba(0,0,0,0.05)] pointer-events-none"></div>
         
         {/* Invitation content */}
         <div className="relative text-center">
