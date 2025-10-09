@@ -1,5 +1,6 @@
 // src/components/forms/RSVPForm.tsx
 import React, { useState } from 'react';
+import { BlissButton, BlissInput, BlissCard } from '@/components/ui';
 import { RSVPData } from '@/types';
 
 interface RSVPFormProps {
@@ -70,9 +71,9 @@ export const RSVPForm: React.FC<RSVPFormProps> = ({ onSubmit, loading = false })
   };
 
   return (
-    <Card className="max-w-2xl mx-auto">
+    <BlissCard className="max-w-2xl mx-auto">
       <div className="grid md:grid-cols-2 gap-6 mb-6">
-        <Input
+        <BlissInput
           label="Full Name *"
           type="text"
           value={formData.name}
@@ -81,7 +82,7 @@ export const RSVPForm: React.FC<RSVPFormProps> = ({ onSubmit, loading = false })
           disabled={loading}
         />
         
-        <Input
+        <BlissInput
           label="Email *"
           type="email"
           value={formData.email}
@@ -96,20 +97,20 @@ export const RSVPForm: React.FC<RSVPFormProps> = ({ onSubmit, loading = false })
           Will you be attending? *
         </label>
         <div className="flex space-x-4">
-          <Button
+          <BlissButton
             variant={formData.attending === true ? 'primary' : 'outline'}
             onClick={() => updateField('attending', true)}
             disabled={loading}
           >
             ✓ Joyfully Accept
-          </Button>
-          <Button
+          </BlissButton>
+          <BlissButton
             variant={formData.attending === false ? 'secondary' : 'outline'}
             onClick={() => updateField('attending', false)}
             disabled={loading}
           >
             ✗ Regretfully Decline
-          </Button>
+          </BlissButton>
         </div>
         {errors.attending && (
           <p className="mt-2 text-sm text-red-600">{errors.attending}</p>
@@ -161,14 +162,14 @@ export const RSVPForm: React.FC<RSVPFormProps> = ({ onSubmit, loading = false })
         />
       </div>
 
-      <Button
+      <BlissButton
         size="lg"
         onClick={handleSubmit}
         disabled={loading}
         className="w-full"
       >
         {loading ? 'Submitting...' : 'Submit RSVP'}
-      </Button>
-    </Card>
+      </BlissButton>
+    </BlissCard>
   );
 };

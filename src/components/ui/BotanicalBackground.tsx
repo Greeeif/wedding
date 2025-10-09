@@ -2,13 +2,13 @@ import React from 'react';
 
 interface BotanicalBackgroundProps {
   children: React.ReactNode;
-  variant?: 'default' | 'light' | 'dark';
+  // variant?: 'default' | 'light' | 'dark';
   className?: string;
 }
 
 export const BotanicalBackground: React.FC<BotanicalBackgroundProps> = ({
   children,
-  variant = 'default',
+  // variant = 'default',
   className = ''
 }) => {
   return (
