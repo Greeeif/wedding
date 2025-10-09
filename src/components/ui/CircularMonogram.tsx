@@ -31,7 +31,7 @@ export const CircularMonogram: React.FC<CircularMonogramProps> = ({
       {/* Top curved text - names */}
       <path
         id="topCurve"
-        d="M 50,200 A 75,110 0 0,1 250,200"
+        d="M 50,200 A 75,10 0 0,1 250,200"
         fill="transparent"
       />
       <text className={`${currentSize.fontSize} font-light tracking-[0.5em] uppercase fill-stone-700`}>

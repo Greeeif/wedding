@@ -1,6 +1,5 @@
 // src/components/forms/RSVPForm.tsx
 import React, { useState } from 'react';
-import { Button, Input, Card } from '@/components/ui';
 import { RSVPData } from '@/types';
 
 interface RSVPFormProps {
