@@ -52,7 +52,7 @@ export const CircularMonogram: React.FC<CircularMonogramProps> = ({
         <tspan dy="5" fontSize="0.7em">{groom.charAt(0)}</tspan>
       </text>
 
-      {/* Bottom curved text - date */}
+      {/* Bottom curved text - date "*/}
       <path
         id="bottomCurve"
         d="M 50,120 A 100,120 0 0,0 250,120"
