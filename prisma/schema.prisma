@@ -26,3 +26,18 @@ model RSVP {
 
   @@index([email])
 }
+
+model Gift {
+  id          String    @id @default(cuid())
+  name        String
+  price       String
+  url         String?
+  image       String
+  description String?
+  purchased   Boolean   @default(false)
+  purchasedBy String?
+  purchasedAt DateTime?
+  createdAt   DateTime  @default(now())
+  
+  @@index([purchased])
+}

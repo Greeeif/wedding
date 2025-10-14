@@ -8,12 +8,17 @@
     "start": "next start",
     "lint": "next lint",
     "type-check": "tsc --noEmit",
-    "db:init": "node -e \"require('./src/lib/db.ts').initDatabase()\"",
-    "db:seed": "node scripts/seed.js"
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:studio": "prisma studio",
+    "db:seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
+  },
+  "prisma": {
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
-    "@vercel/postgres": "^0.10.0",
+    "@prisma/client": "^6.17.0",
     "lucide-react": "^0.468.0",
     "next": "15.5.2",
     "react": "19.1.0",
@@ -24,7 +29,6 @@
     "zustand": "^5.0.2"
   },
   "devDependencies": {
-    "@prisma/client": "^6.17.0",
     "@tailwindcss/forms": "^0.5.9",
     "@tailwindcss/typography": "^0.5.15",
     "@types/node": "^22.10.1",
@@ -36,6 +40,7 @@
     "postcss": "^8.5.1",
     "prisma": "^6.17.0",
     "tailwindcss": "^3.4.17",
+    "ts-node": "^10.9.2",
     "typescript": "^5.7.2"
   }
 }
