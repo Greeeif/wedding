@@ -1,4 +1,3 @@
-// src/app/page.tsx - Complete Wedding Landing Page
 'use client';
 
 import React, { useState, useEffect } from 'react';
@@ -14,7 +13,6 @@ import {
 } from '@/components/sections';
 import { BlissNavigation } from '@/components/ui';
 
-// Wedding data - customize this for your actual wedding
 const weddingData = {
   coupleNames: {
     bride: "Yarah",
