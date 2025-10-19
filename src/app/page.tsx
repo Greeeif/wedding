@@ -122,12 +122,6 @@ export default function WeddingPage() {
     }
   };
 
-  const handleRSVPClick = () => {
-    const rsvpElement = document.getElementById('rsvp');
-    if (rsvpElement) {
-      rsvpElement.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   const handleRSVPSubmit = async (data: any) => {
     try {
@@ -171,7 +165,7 @@ export default function WeddingPage() {
         date={weddingData.date}
         time={weddingData.time}
         venue={weddingData.venue}
-        onRSVPClick={handleRSVPClick}
+        onRSVPClick={() => handleSectionClick('rsvp')}
       />
 
       {/* Our Story Section */}
