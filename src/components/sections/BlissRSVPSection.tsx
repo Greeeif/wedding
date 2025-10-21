@@ -88,14 +88,14 @@ export const BlissRSVPSection: React.FC<BlissRSVPSectionProps> = ({
                     onClick={() => updateField('attending', true)}
                     className="flex-1"
                   >
-                    Joyfully Accept
+                    We're Coming for Cake!
                   </BlissButton>
                   <BlissButton
                     variant={formData.attending === false ? 'primary' : 'outline'}
                     onClick={() => updateField('attending', false)}
                     className="flex-1"
                   >
-                    Regretfully Decline
+                    No, we hate fun
                   </BlissButton>
                 </div>
               </div>
