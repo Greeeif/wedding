@@ -1,15 +1,15 @@
 // src/components/forms/RSVPForm.tsx
 import React, { useState } from 'react';
 import { BlissButton, BlissInput, BlissCard } from '@/components/ui';
-import { RSVPData } from '@/types';
+import { RSVPData, RSVPFormData } from '@/types';
 
 interface RSVPFormProps {
-  onSubmit: (data: RSVPData) => Promise<void>;
+  onSubmit: (data: RSVPFormData) => Promise<void>;
   loading?: boolean;
 }
 
 export const RSVPForm: React.FC<RSVPFormProps> = ({ onSubmit, loading = false }) => {
-  const [formData, setFormData] = useState<RSVPData>({
+  const [formData, setFormData] = useState<RSVPFormData>({
     name: '',
     email: '',
     attending: null,
@@ -18,10 +18,10 @@ export const RSVPForm: React.FC<RSVPFormProps> = ({ onSubmit, loading = false })
     message: ''
   });
 
-  const [errors, setErrors] = useState<Partial<RSVPData>>({});
+  const [errors, setErrors] = useState<Partial<RSVPFormData>>({});
 
   const validateForm = (): boolean => {
-    const newErrors: Partial<RSVPData> = {};
+    const newErrors: Partial<RSVPFormData> = {};
 
     if (!formData.name.trim()) {
       newErrors.name = 'Name is required';
@@ -62,7 +62,7 @@ export const RSVPForm: React.FC<RSVPFormProps> = ({ onSubmit, loading = false })
     }
   };
 
-  const updateField = (field: keyof RSVPData, value: any) => {
+  const updateField = (field: keyof RSVPFormData, value: any) => {
     setFormData(prev => ({ ...prev, [field]: value }));
     // Clear error when user starts typing
     if (errors[field]) {
