@@ -145,8 +145,8 @@ export default function WeddingPage() {
       alert('There was an error submitting your RSVP. Please try again.');
     }
   };
-
-  const monogramLetters = `${weddingData.coupleNames.bride.charAt(0)}&${weddingData.coupleNames.groom.charAt(0)}`;
+  
+  const monogramLetters = `${weddingData.coupleNames.bride[0]}&${weddingData.coupleNames.groom[0]}`;
 
   return (
     <main className="min-h-screen">
