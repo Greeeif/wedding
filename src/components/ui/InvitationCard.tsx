@@ -62,16 +62,22 @@ export const InvitationCard: React.FC<InvitationCardProps> = ({
             The honor of your presence is requested<br />at the wedding of
           </p>
           
-          {/* Circular Monogram with names and date */}
+          {/* Circular Monogram with names and date - removed scaling wrapper */}
           <div className="mb-3 sm:mb-5 md:mb-8">
-            <div className="scale-75 sm:scale-90 md:scale-100">
-              <CircularMonogram
-                bride={coupleNames.bride}
-                groom={coupleNames.groom}
-                date={date}
-                size="md"
-              />
-            </div>
+            <CircularMonogram
+              bride={coupleNames.bride}
+              groom={coupleNames.groom}
+              date={date}
+              size="sm"
+              className="sm:hidden"
+            />
+            <CircularMonogram
+              bride={coupleNames.bride}
+              groom={coupleNames.groom}
+              date={date}
+              size="md"
+              className="hidden sm:block"
+            />
           </div>
 
           {/* Event details - much more compact on mobile */}

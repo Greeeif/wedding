@@ -16,12 +16,37 @@ export const CircularMonogram: React.FC<CircularMonogramProps> = ({
   className = ''
 }) => {
   const sizes = {
-    sm: { viewBox: 'w-48 h-48', fontSize: 'text-[8px]', initialSize: 'text-3xl' },
-    md: { viewBox: 'w-64 h-64', fontSize: 'text-xs', initialSize: 'text-5xl' },
-    lg: { viewBox: 'w-80 h-80', fontSize: 'text-sm', initialSize: 'text-6xl' }
+    sm: { 
+      viewBox: 'w-48 h-48', 
+      fontSize: 'text-[6px]', 
+      initialSize: 'text-2xl',
+      topCurve: 'M 50,200 A 75,100 0 0,1 250,200',
+      bottomCurve: 'M 50,120 A 100,130 0 0,0 250,120',
+      bottomTracking: 'tracking-[0.5em]'
+    },
+    md: { 
+      viewBox: 'w-64 h-64', 
+      fontSize: 'text-xs', 
+      initialSize: 'text-5xl',
+      topCurve: 'M 50,200 A 75,100 0 0,1 250,200',
+      bottomCurve: 'M 50,120 A 100,130 0 0,0 250,120',
+      bottomTracking: 'tracking-[0.5em]'
+    },
+    lg: { 
+      viewBox: 'w-80 h-80', 
+      fontSize: 'text-sm', 
+      initialSize: 'text-6xl',
+      topCurve: 'M 50,200 A 75,100 0 0,1 250,200',
+      bottomCurve: 'M 50,120 A 100,130 0 0,0 250,120',
+      bottomTracking: 'tracking-[0.5em]'
+    }
   };
 
   const currentSize = sizes[size];
+  
+  // Create unique IDs for this instance
+  const topCurveId = `topCurve-${size}`;
+  const bottomCurveId = `bottomCurve-${size}`;
 
   return (
     <svg
@@ -30,12 +55,12 @@ export const CircularMonogram: React.FC<CircularMonogramProps> = ({
     >
       {/* Top curved text - names */}
       <path
-        id="topCurve"
-        d="M 50,200 A 75,100 0 0,1 250,200"
+        id={topCurveId}
+        d={currentSize.topCurve}
         fill="transparent"
       />
       <text className={`${currentSize.fontSize} font-light tracking-[0.5em] uppercase fill-stone-700`}>
-        <textPath href="#topCurve" startOffset="50%" textAnchor="middle">
+        <textPath href={`#${topCurveId}`} startOffset="50%" textAnchor="middle">
           {bride.toUpperCase()} AND {groom.toUpperCase()}
         </textPath>
       </text>
@@ -43,8 +68,9 @@ export const CircularMonogram: React.FC<CircularMonogramProps> = ({
       {/* Center monogram initials */}
       <text
         x="150"
-        y="155"
+        y="160"
         textAnchor="middle"
+        dominantBaseline="middle"
         className={`${currentSize.initialSize} font-serif fill-stone-700`}
         style={{ letterSpacing: '-0.05em' }}
       >
@@ -52,14 +78,14 @@ export const CircularMonogram: React.FC<CircularMonogramProps> = ({
         <tspan dy="5" fontSize="0.7em">{groom.charAt(0)}</tspan>
       </text>
 
-      {/* Bottom curved text - date "*/}
+      {/* Bottom curved text - date */}
       <path
-        id="bottomCurve"
-        d="M 50,120 A 100,120 0 0,0 250,120"
+        id={bottomCurveId}
+        d={currentSize.bottomCurve}
         fill="transparent"
       />
-      <text className={`${currentSize.fontSize} font-light tracking-[0.5em] uppercase fill-stone-700`}>
-        <textPath href="#bottomCurve" startOffset="50%" textAnchor="middle">
+      <text className={`${currentSize.fontSize} font-light ${currentSize.bottomTracking} uppercase fill-stone-700`}>
+        <textPath href={`#${bottomCurveId}`} startOffset="50%" textAnchor="middle">
           {date.trim().replace(/\s+/g, ' ').toUpperCase()}
         </textPath>
       </text>
