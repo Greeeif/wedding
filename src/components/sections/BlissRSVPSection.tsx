@@ -62,6 +62,7 @@ export const BlissRSVPSection: React.FC<BlissRSVPSectionProps> = ({
 
           {/* Right side - RSVP Form */}
           <BlissCard>
+            suppressHydrationWarning
             <div className="space-y-6">
               <BlissInput
                 label="Full Name"

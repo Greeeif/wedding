@@ -19,6 +19,7 @@ export const BlissInput: React.FC<BlissInputProps> = ({
         </label>
       )}
       <input
+        suppressHydrationWarning
         className={`w-full px-4 py-3 border border-stone-200 rounded-sm focus:outline-none focus:border-stone-400 transition-colors font-light ${
           error ? 'border-red-400' : ''
         } ${className}`}
