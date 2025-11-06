@@ -35,11 +35,6 @@ export const BlissGallerySection: React.FC<BlissGallerySectionProps> = ({
       span: 'col-span-6 md:col-span-4',
       content: <ImagePlaceholder icon={Camera} label="couple photo 4" size="md" />
     },
-        {
-      id: 'detail5',
-      span: 'col-span-6 md:col-span-4',
-      content: <ImagePlaceholder icon={MapPin} label="couple photo 5" size="md" />
-    }
   ];
 
   return (
