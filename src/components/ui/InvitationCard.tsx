@@ -26,7 +26,7 @@ export const InvitationCard: React.FC<InvitationCardProps> = ({
 }) => {
   return (
     <div className={`transform hover:scale-105 transition-transform duration-700 ease-out ${className}`}>
-      <div className="absolute inset-0 bg-stone-900/20 blur-2xl transform translate-y-8 scale-95 -z-10"></div>
+      <div className="absolute inset-0 bg-stone-900/20 blur-2xl transform translate-y-8 scale-85 -z-10"></div>
       {/* Much smaller card with reduced padding */}
       <div className="bg-stone-50 border border-stone-300/60 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] p-5 sm:p-8 md:p-16 max-w-[280px] sm:max-w-sm md:max-w-md mx-auto relative overflow-hidden">
         <div 

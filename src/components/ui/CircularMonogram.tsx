@@ -18,8 +18,8 @@ export const CircularMonogram: React.FC<CircularMonogramProps> = ({
   const sizes = {
     sm: { 
       viewBox: 'w-48 h-48', 
-      fontSize: 'text-[6px]', 
-      initialSize: 'text-2xl',
+      fontSize: 'text-sm', 
+      initialSize: 'text-6xl',
       topCurve: 'M 50,200 A 75,100 0 0,1 250,200',
       bottomCurve: 'M 50,120 A 100,130 0 0,0 250,120',
       bottomTracking: 'tracking-[0.5em]'
