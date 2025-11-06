@@ -18,17 +18,27 @@ export const BlissGallerySection: React.FC<BlissGallerySectionProps> = ({
     {
       id: 'detail1',
       span: 'col-span-6 md:col-span-4',
-      content: <ImagePlaceholder icon={Gift} label="Detail Shot" size="md" />
+      content: <ImagePlaceholder icon={Gift} label="couple photo 1" size="md" />
     },
     {
       id: 'detail2',
       span: 'col-span-6 md:col-span-4',
-      content: <ImagePlaceholder icon={Camera} label="Lifestyle Shot" size="md" />
+      content: <ImagePlaceholder icon={Camera} label="couple photo 2" size="md" />
     },
     {
       id: 'detail3',
       span: 'col-span-6 md:col-span-4',
-      content: <ImagePlaceholder icon={MapPin} label="Location" size="md" />
+      content: <ImagePlaceholder icon={Camera} label="couple photo 3" size="md" />
+    },
+        {
+      id: 'detail4',
+      span: 'col-span-6 md:col-span-4',
+      content: <ImagePlaceholder icon={Camera} label="couple photo 4" size="md" />
+    },
+        {
+      id: 'detail5',
+      span: 'col-span-6 md:col-span-4',
+      content: <ImagePlaceholder icon={MapPin} label="couple photo 5" size="md" />
     }
   ];
 
