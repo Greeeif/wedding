@@ -27,8 +27,8 @@ export const InvitationCard: React.FC<InvitationCardProps> = ({
   return (
     <div className={`transform hover:scale-105 transition-transform duration-700 ease-out ${className}`}>
       <div className="absolute inset-0 bg-stone-900/20 blur-2xl transform translate-y-8 scale-85 -z-10"></div>
-      {/* Much smaller card with reduced padding */}
-      <div className="bg-stone-50 border border-stone-300/60 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] p-5 sm:p-8 md:p-16 max-w-[220px] sm:max-w-sm md:max-w-md mx-auto relative overflow-hidden">
+      {/* Responsive card sizing - wider on mobile for better readability */}
+      <div className="bg-stone-50 border border-stone-300/60 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] p-6 sm:p-8 md:p-16 max-w-[280px] sm:max-w-sm md:max-w-md mx-auto relative overflow-hidden">
         <div 
           className="absolute inset-0 opacity-40 pointer-events-none"
           style={{
@@ -54,16 +54,16 @@ export const InvitationCard: React.FC<InvitationCardProps> = ({
         
         {/* Invitation content */}
         <div className="relative text-center">
-          {/* Decorative top border - much smaller */}
-          <div className="w-8 sm:w-12 md:w-16 h-px bg-stone-400 mx-auto mb-1.5 sm:mb-6 md:mb-8"></div>
+          {/* Decorative top border */}
+          <div className="w-10 sm:w-12 md:w-16 h-px bg-stone-400 mx-auto mb-2 sm:mb-6 md:mb-8"></div>
           
-          {/* Header text - much smaller on mobile */}
-          <p className="text-[0.55rem] sm:text-[0.65rem] md:text-xs font-light tracking-[0.2em] sm:tracking-[0.25em] md:tracking-[0.3em] uppercase text-stone-700 mb-3 sm:mb-5 md:mb-8 leading-relaxed">
+          {/* Header text - improved mobile readability */}
+          <p className="text-[0.625rem] sm:text-[0.7rem] md:text-xs font-light tracking-[0.15em] sm:tracking-[0.2em] md:tracking-[0.25em] uppercase text-stone-700 mb-4 sm:mb-5 md:mb-8 leading-relaxed">
             The honor of your presence is requested<br />at the wedding of
           </p>
           
-          {/* Circular Monogram with names and date - removed scaling wrapper */}
-          <div className="mb-3 sm:mb-5 md:mb-8">
+          {/* Circular Monogram with names and date */}
+          <div className="mb-4 sm:mb-5 md:mb-8">
             <CircularMonogram
               bride={coupleNames.bride}
               groom={coupleNames.groom}
@@ -80,27 +80,27 @@ export const InvitationCard: React.FC<InvitationCardProps> = ({
             />
           </div>
 
-          {/* Event details - much more compact on mobile */}
-          <div className="space-y-1 sm:space-y-4 md:space-y-6 text-stone-700">
-            <div className="py-1 sm:py-2 md:py-4">
-              <div className="w-8 sm:w-10 md:w-12 h-px bg-stone-400 mx-auto mb-1.5 sm:mb-2 md:mb-4"></div>
-              <p className="text-[0.6rem] sm:text-xs md:text-sm font-light tracking-wide">{time}</p>
-              <div className="w-8 sm:w-10 md:w-12 h-px bg-stone-400 mx-auto mt-1.5 sm:mt-2 md:mt-4"></div>
+          {/* Event details - improved mobile sizing */}
+          <div className="space-y-2 sm:space-y-4 md:space-y-6 text-stone-700">
+            <div className="py-1.5 sm:py-2 md:py-4">
+              <div className="w-10 sm:w-10 md:w-12 h-px bg-stone-400 mx-auto mb-2 sm:mb-2 md:mb-4"></div>
+              <p className="text-[0.7rem] sm:text-xs md:text-sm font-light tracking-wide">{time}</p>
+              <div className="w-10 sm:w-10 md:w-12 h-px bg-stone-400 mx-auto mt-2 sm:mt-2 md:mt-4"></div>
             </div>
             
-            <div className="space-y-0.5 sm:space-y-1">
-              <p className="text-[0.6rem] sm:text-xs md:text-sm font-light tracking-wide">{venue.name}</p>
-              <p className="text-[0.5rem] sm:text-[0.65rem] md:text-xs font-light text-stone-600 tracking-wide">{venue.location}</p>
+            <div className="space-y-1 sm:space-y-1">
+              <p className="text-[0.7rem] sm:text-xs md:text-sm font-light tracking-wide">{venue.name}</p>
+              <p className="text-[0.625rem] sm:text-[0.7rem] md:text-xs font-light text-stone-600 tracking-wide">{venue.location}</p>
             </div>
           </div>
           
           {/* Decorative bottom border */}
-          <div className="w-8 sm:w-12 md:w-16 h-px bg-stone-400 mx-auto mt-3 sm:mt-5 md:mt-8 mb-3 sm:mb-4 md:mb-6"></div>
+          <div className="w-10 sm:w-12 md:w-16 h-px bg-stone-400 mx-auto mt-4 sm:mt-5 md:mt-8 mb-4 sm:mb-4 md:mb-6"></div>
           
-          {/* RSVP button */}
+          {/* RSVP button - improved mobile size */}
           <button 
             onClick={onRSVPClick}
-            className="text-[0.5rem] sm:text-[0.65rem] md:text-xs font-light tracking-[0.2em] uppercase text-stone-600 hover:text-stone-800 transition-colors duration-300 border-b border-stone-400 hover:border-stone-600 pb-1"
+            className="text-[0.625rem] sm:text-[0.7rem] md:text-xs font-light tracking-[0.15em] uppercase text-stone-600 hover:text-stone-800 transition-colors duration-300 border-b border-stone-400 hover:border-stone-600 pb-1"
           >
             RSVP
           </button>
