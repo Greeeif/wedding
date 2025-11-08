@@ -49,16 +49,23 @@ export const rsvpQueries = {
 
   // Update RSVP
   async update(id: string, data: Partial<RSVPData>) {
+    // Build update object, only including defined non-null values
+    const updateData: any = {};
+    
+    if (data.name) updateData.name = data.name;
+    if (data.email) updateData.email = data.email;
+    if (typeof data.attending === 'boolean') updateData.attending = data.attending;
+    if (data.guests !== undefined) updateData.guests = data.guests;
+    if (data.dietaryRestrictions !== undefined) {
+      updateData.dietaryRestrictions = data.dietaryRestrictions || null;
+    }
+    if (data.message !== undefined) {
+      updateData.message = data.message || null;
+    }
+
     return await prisma.rSVP.update({
       where: { id },
-      data: {
-        ...(data.name && { name: data.name }),
-        ...(data.email && { email: data.email }),
-        ...(data.attending !== undefined && { attending: data.attending }),
-        ...(data.guests && { guests: data.guests }),
-        ...(data.dietaryRestrictions !== undefined && { dietaryRestrictions: data.dietaryRestrictions }),
-        ...(data.message !== undefined && { message: data.message }),
-      },
+      data: updateData,
     });
   },
 
