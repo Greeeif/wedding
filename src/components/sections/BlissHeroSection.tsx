@@ -24,9 +24,9 @@ export const BlissHeroSection: React.FC<BlissHeroSectionProps> = ({
 }) => {
   return (
     <section id="hero">
-      {/* Use 60vh on mobile, full screen on md+ */}
-      <BotanicalBackground className="min-h-[60vh] md:min-h-screen">
-        <div className="min-h-[60vh] md:min-h-screen flex items-center justify-center px-4 sm:px-12 md:px-6 pt-12 md:pt-32 pb-10 md:pb-20">
+      {/* Full screen height on ALL devices */}
+      <BotanicalBackground className="min-h-screen">
+        <div className="min-h-screen flex items-center justify-center px-4 sm:px-12 md:px-6 py-20">
           <InvitationCard
             coupleNames={coupleNames}
             date={date}
