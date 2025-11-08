@@ -44,7 +44,7 @@ export const useGiftRegistry = () => {
       } else {
         throw new Error(result.error || 'Failed to purchase gift');
       }
-    } catch (err) {
+    } catch {
       alert('There was an error processing your gift purchase. Please try again.');
     }
   };
