@@ -63,21 +63,6 @@ export const BlissRSVPSection: React.FC<BlissRSVPSectionProps> = ({
           {/* Right side - RSVP Form */}
           <BlissCard>
             <div className="space-y-6">
-              <BlissInput
-                label="Full Name"
-                placeholder="Enter your name"
-                value={formData.name}
-                onChange={(e) => updateField('name', e.target.value)}
-              />
-
-              <BlissInput
-                label="Email Address"
-                type="email"
-                placeholder="Enter your email"
-                value={formData.email}
-                onChange={(e) => updateField('email', e.target.value)}
-              />
-
               <div>
                 <label className="block text-sm font-light text-stone-700 mb-3 tracking-wide">
                   Will you be attending?
