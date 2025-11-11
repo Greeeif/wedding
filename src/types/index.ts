@@ -2,8 +2,6 @@
 
 export interface RSVPData {
   id: string;
-  name: string;
-  email: string;
   attending: boolean | null;
   guests: number;
   dietaryRestrictions?: string | null;
@@ -27,8 +25,6 @@ export interface GiftItem {
 
 // Form submission types (before DB insertion)
 export interface RSVPFormData {
-  name: string;
-  email: string;
   attending: boolean | null;
   guests: number;
   dietaryRestrictions?: string;

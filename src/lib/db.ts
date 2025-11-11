@@ -21,8 +21,6 @@ export const rsvpQueries = {
   async create(data: Omit<RSVPData, 'id' | 'createdAt'>) {
     return await prisma.rSVP.create({
       data: {
-        name: data.name,
-        email: data.email,
         attending: data.attending ?? false,
         guests: data.guests,
         dietaryRestrictions: data.dietaryRestrictions,
@@ -52,8 +50,6 @@ export const rsvpQueries = {
     // Build update object, only including defined non-null values
     const updateData: any = {};
     
-    if (data.name) updateData.name = data.name;
-    if (data.email) updateData.email = data.email;
     if (typeof data.attending === 'boolean') updateData.attending = data.attending;
     if (data.guests !== undefined) updateData.guests = data.guests;
     if (data.dietaryRestrictions !== undefined) {

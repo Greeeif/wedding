@@ -7,17 +7,15 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     
     // Validate required fields
-    if (!body.name || !body.email || body.attending === undefined) {
+    if ( body.attending === undefined) {
       return NextResponse.json({
         success: false,
-        error: 'Missing required fields: name, email, and attending status'
+        error: 'Missing required fields: attending status'
       }, { status: 400 });
     }
 
     // Save RSVP to database using Prisma
     const rsvp = await rsvpQueries.create({
-      name: body.name,
-      email: body.email,
       attending: body.attending,
       guests: body.guests || 1,
       dietaryRestrictions: body.dietaryRestrictions || null,
