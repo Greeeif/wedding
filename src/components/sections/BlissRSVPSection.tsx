@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { SectionHeader, BlissCard, BlissInput, BlissTextarea, BlissButton } from '@/components/ui';
 
 interface RSVPFormData {
-  name: string;
-  email: string;
   attending: boolean | null;
   guests: number;
   message: string;
@@ -21,8 +19,6 @@ export const BlissRSVPSection: React.FC<BlissRSVPSectionProps> = ({
   className = ''
 }) => {
   const [formData, setFormData] = useState<RSVPFormData>({
-    name: '',
-    email: '',
     attending: null,
     guests: 1,
     message: ''
