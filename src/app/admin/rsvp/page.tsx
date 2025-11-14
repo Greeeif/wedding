@@ -145,6 +145,12 @@ export default function AdminRSVPPage() {
                 ) : (
                   rsvps.map((rsvp) => (
                     <tr key={rsvp.id} className="hover:bg-stone-50">
+                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-stone-800">
+                        {rsvp.name}
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-stone-600">
+                        {rsvp.email}
+                      </td>
                       <td className="px-6 py-4 whitespace-nowrap">
                         <span
                           className={`px-2 py-1 text-xs rounded-full ${

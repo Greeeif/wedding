@@ -22,16 +22,14 @@ model User {
 
 model RSVP {
   id                  String   @id @default(cuid())
-  name                String
-  email               String
+  userId              String   @unique
+  user                User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   attending           Boolean
-  guests              Int      @default(1)
+  guests              Int
   dietaryRestrictions String?
   message             String?
   createdAt           DateTime @default(now())
   updatedAt           DateTime @updatedAt
-
-  @@index([email])
 }
 
 model Gift {
