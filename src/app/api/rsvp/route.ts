@@ -1,32 +1,63 @@
-// src/app/api/rsvp/route.ts
 import { NextRequest, NextResponse } from 'next/server';
-import { rsvpQueries } from '@/lib/db';
+import { auth } from '@/auth';
+import { prisma } from '@/lib/db';
 
 export async function POST(request: NextRequest) {
   try {
+    const session = await auth();
+    
+    if (!session?.user?.id) {
+      return NextResponse.json({
+        success: false,
+        error: 'Unauthorized. Please log in first.'
+      }, { status: 401 });
+    }
+
     const body = await request.json();
     
-    // Validate required fields
-    if ( body.attending === undefined) {
+    if (body.attending === undefined) {
       return NextResponse.json({
         success: false,
         error: 'Missing required fields: attending status'
       }, { status: 400 });
     }
 
-    // Save RSVP to database using Prisma
-    const rsvp = await rsvpQueries.create({
-      attending: body.attending,
-      guests: body.guests || 1,
-      dietaryRestrictions: body.dietaryRestrictions || null,
-      message: body.message || null,
+    // Check if user already has an RSVP
+    const existingRSVP = await prisma.rSVP.findUnique({
+      where: { userId: session.user.id }
     });
+
+    let rsvp;
+    
+    if (existingRSVP) {
+      // Update existing RSVP
+      rsvp = await prisma.rSVP.update({
+        where: { userId: session.user.id },
+        data: {
+          attending: body.attending,
+          guests: body.guests || 1,
+          dietaryRestrictions: body.dietaryRestrictions || null,
+          message: body.message || null,
+        },
+      });
+    } else {
+      // Create new RSVP
+      rsvp = await prisma.rSVP.create({
+        data: {
+          userId: session.user.id,
+          attending: body.attending,
+          guests: body.guests || 1,
+          dietaryRestrictions: body.dietaryRestrictions || null,
+          message: body.message || null,
+        },
+      });
+    }
     
     console.log('RSVP saved:', rsvp);
     
     return NextResponse.json({
       success: true,
-      message: 'RSVP received successfully',
+      message: existingRSVP ? 'RSVP updated successfully' : 'RSVP received successfully',
       data: rsvp
     });
     
@@ -42,19 +73,39 @@ export async function POST(request: NextRequest) {
 
 export async function GET() {
   try {
-    // Get all RSVPs
-    const rsvps = await rsvpQueries.getAll();
+    const session = await auth();
+    
+    if (!session?.user?.id) {
+      return NextResponse.json({
+        success: false,
+        error: 'Unauthorized'
+      }, { status: 401 });
+    }
+
+    // Get the current user's RSVP
+    const rsvp = await prisma.rSVP.findUnique({
+      where: { userId: session.user.id },
+      include: {
+        user: {
+          select: {
+            name: true,
+            email: true,
+            maxGuests: true,
+          }
+        }
+      }
+    });
     
     return NextResponse.json({
       success: true,
-      data: rsvps
+      data: rsvp
     });
   } catch (error) {
-    console.error('Error fetching RSVPs:', error);
+    console.error('Error fetching RSVP:', error);
     
     return NextResponse.json({
       success: false,
-      error: 'Failed to fetch RSVPs'
+      error: 'Failed to fetch RSVP'
     }, { status: 500 });
   }
 }
