@@ -9,7 +9,10 @@ interface RSVPFormData {
 
 interface BlissRSVPSectionProps {
   deadline: string;
-  onRSVPSubmit: (data: RSVPFormData) => Promise<void>;
+  userName?: string;
+  userEmail?: string;
+  maxGuests?: number;
+  onRSVPSubmit: (data: any) => Promise<void>;
   className?: string;
 }
 
