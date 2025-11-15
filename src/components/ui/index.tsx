@@ -12,3 +12,4 @@ export { ImagePlaceholder } from './ImagePlaceholder';
 export { Monogram } from './Monogram';
 export { SectionHeader } from './SectionHeader';
 export { CircularMonogram } from './CircularMonogram';
+export { PageTransition } from './PageTransition';

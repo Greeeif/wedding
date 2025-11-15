@@ -11,7 +11,7 @@ import {
   BlissRegistrySection,
   BlissFooter
 } from '@/components/sections';
-import { BlissNavigation } from '@/components/ui';
+import { BlissNavigation, PageTransition } from '@/components/ui';
 
 const weddingData = {
   coupleNames: {
@@ -154,58 +154,60 @@ export function WeddingClient({ userName, userEmail, maxGuests }: WeddingClientP
   const monogramLetters = `${weddingData.coupleNames.bride[0]}&${weddingData.coupleNames.groom[0]}`;
 
   return (
-    <main className="min-h-screen">
-      {/* Navigation */}
-      <BlissNavigation
-        monogramLetters={monogramLetters}
-        items={navigationItems}
-        currentSection={currentSection}
-        isScrolled={isScrolled}
-        onSectionClick={handleSectionClick}
-      />
+    <PageTransition>
+        <main className="min-h-screen">
+        {/* Navigation */}
+        <BlissNavigation
+            monogramLetters={monogramLetters}
+            items={navigationItems}
+            currentSection={currentSection}
+            isScrolled={isScrolled}
+            onSectionClick={handleSectionClick}
+        />
 
-      {/* Hero Section */}
-      <BlissHeroSection
-        coupleNames={weddingData.coupleNames}
-        date={weddingData.date}
-        time={weddingData.time}
-        venue={weddingData.venue}
-        onRSVPClick={() => handleSectionClick('rsvp')}
-      />
+        {/* Hero Section */}
+        <BlissHeroSection
+            coupleNames={weddingData.coupleNames}
+            date={weddingData.date}
+            time={weddingData.time}
+            venue={weddingData.venue}
+            onRSVPClick={() => handleSectionClick('rsvp')}
+        />
 
-      {/* Our Story Section */}
-      <BlissStorySection story={weddingData.story} />
+        {/* Our Story Section */}
+        <BlissStorySection story={weddingData.story} />
 
-      {/* Wedding Details Section */}
-      <BlissDetailsSection venue={weddingData.venue} />
+        {/* Wedding Details Section */}
+        <BlissDetailsSection venue={weddingData.venue} />
 
-      {/* Gallery Section */}
-      <BlissGallerySection />
+        {/* Gallery Section */}
+        <BlissGallerySection />
 
-      {/* RSVP Section */}
-      <BlissRSVPSection
-        deadline="August 1st, 2024"
-        userName={userName}
-        userEmail={userEmail}
-        maxGuests={maxGuests}
-        onRSVPSubmit={handleRSVPSubmit}
-      />
+        {/* RSVP Section */}
+        <BlissRSVPSection
+            deadline="August 1st, 2024"
+            userName={userName}
+            userEmail={userEmail}
+            maxGuests={maxGuests}
+            onRSVPSubmit={handleRSVPSubmit}
+        />
 
-      {/* Menu Section */}
-      <BlissMenuSection
-        menuCategories={weddingData.menuCategories}
-        barService={weddingData.barService}
-      />
+        {/* Menu Section */}
+        <BlissMenuSection
+            menuCategories={weddingData.menuCategories}
+            barService={weddingData.barService}
+        />
 
-      {/* Registry Section */}
-      <BlissRegistrySection registryItems={weddingData.registryItems} />
+        {/* Registry Section */}
+        <BlissRegistrySection registryItems={weddingData.registryItems} />
 
-      {/* Footer */}
-      <BlissFooter
-        coupleNames={weddingData.coupleNames}
-        date={weddingData.date}
-        venue={weddingData.venue}
-      />
-    </main>
+        {/* Footer */}
+        <BlissFooter
+            coupleNames={weddingData.coupleNames}
+            date={weddingData.date}
+            venue={weddingData.venue}
+        />
+        </main>
+    </PageTransition>
   );
 }
