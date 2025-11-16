@@ -1,33 +1,52 @@
-// src/types/index.ts - Updated to match Prisma schema
+// src/types/index.ts
 
-export interface RSVPData {
+// Database models (matching Prisma schema)
+export interface User {
   id: string;
-  name: string;
   email: string;
-  attending: boolean | null;
-  guests: number;
-  dietaryRestrictions?: string | null;
-  message?: string | null;
+  name: string;
+  password: string;
+  maxGuests: number;
   createdAt: Date;
-  updatedAt?: Date;
+  updatedAt: Date;
+  rsvp?: RSVP | null;
 }
 
+export interface RSVP {
+  id: string;
+  userId: string;
+  attending: boolean;
+  guests: number;
+  dietaryRestrictions: string | null;
+  message: string | null;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+// For displaying RSVP data with user info (what you actually use in your app)
+export interface RSVPWithUser extends RSVP {
+  user: {
+    name: string;
+    email: string;
+  };
+}
+
+// Rest of your types remain the same...
 export interface GiftItem {
   id: string;
   name: string;
   price: string;
-  url?: string | null;
+  url: string | null;
   image: string;
-  description?: string | null;
+  description: string | null;
   purchased: boolean;
-  purchasedBy?: string | null;
-  purchasedAt?: Date | null;
-  createdAt?: Date;
+  purchasedBy: string | null;
+  purchasedAt: Date | null;
+  createdAt: Date;
 }
 
-// Form submission types (before DB insertion)
 export interface RSVPFormData {
-  attending: boolean | null;
+  attending: boolean;
   guests: number;
   dietaryRestrictions?: string;
   message?: string;
@@ -41,7 +60,6 @@ export interface GiftFormData {
   description?: string;
 }
 
-// API Response type
 export interface APIResponse<T = any> {
   success: boolean;
   data?: T;
@@ -49,7 +67,6 @@ export interface APIResponse<T = any> {
   message?: string;
 }
 
-// Additional types for wedding app
 export interface MenuCategory {
   name: string;
   items: string[];
