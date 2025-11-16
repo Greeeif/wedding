@@ -2,6 +2,8 @@
 
 export interface RSVPData {
   id: string;
+  name: string;
+  email: string;
   attending: boolean | null;
   guests: number;
   dietaryRestrictions?: string | null;
