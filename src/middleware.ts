@@ -1,28 +1,41 @@
-import { auth } from '@/auth';
 import { NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
 
-export default auth((req) => {
-
+export function middleware(request: NextRequest) {
+  // Get the session token from cookies
+  const sessionToken = request.cookies.get('authjs.session-token')?.value || 
+                      request.cookies.get('__Secure-authjs.session-token')?.value;
   
-  const isLoggedIn = !!req.auth;
-  const isOnLoginPage = req.nextUrl.pathname === '/login';
+  const isLoggedIn = !!sessionToken;
+  const isOnLoginPage = request.nextUrl.pathname === '/login';
   
   // Allow access to login page
   if (isOnLoginPage) {
-    console.log('Allowing access to login page');
+    // If already logged in, redirect to home
+    if (isLoggedIn) {
+      return NextResponse.redirect(new URL('/', request.url));
+    }
     return NextResponse.next();
   }
   
   // Protect all other routes - redirect to login if not authenticated
   if (!isLoggedIn) {
-    console.log('NOT LOGGED IN - Redirecting to /login');
-    return NextResponse.redirect(new URL('/login', req.url));
+    return NextResponse.redirect(new URL('/login', request.url));
   }
   
-  console.log('User is authenticated - allowing access');
   return NextResponse.next();
-});
+}
 
 export const config = {
-  matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
+  matcher: [
+    /*
+     * Match all request paths except:
+     * - api routes (API routes handle their own auth)
+     * - _next/static (static files)
+     * - _next/image (image optimization files)
+     * - favicon.ico (favicon file)
+     * - public folder files
+     */
+    '/((?!api|_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
+  ],
 };
