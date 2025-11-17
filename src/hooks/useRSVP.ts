@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import { RSVPData, APIResponse } from '@/types';
+import { RSVPFormData, APIResponse } from '@/types';
 
 export const useRSVP = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const submitRSVP = async (data: RSVPData): Promise<void> => {
+  const submitRSVP = async (data: RSVPFormData): Promise<void> => {
     setLoading(true);
     setError(null);
 
