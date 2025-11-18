@@ -1,0 +1,12 @@
+# Prisma generated files
+src/generated/**
+
+# Dependencies
+node_modules/
+
+# Build output
+.next/
+out/
+
+# Vercel
+.vercel

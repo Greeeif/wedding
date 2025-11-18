@@ -1,10 +1,10 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { RSVPData } from '@/types';
+import { RSVPWithUser } from '@/types';
 
 export default function AdminRSVPPage() {
-  const [rsvps, setRsvps] = useState<RSVPData[]>([]);
+  const [rsvps, setRsvps] = useState<RSVPWithUser[]>([]);
   const [stats, setStats] = useState({
     total: 0,
     attending: 0,
@@ -38,15 +38,15 @@ export default function AdminRSVPPage() {
     }
   };
 
-  const calculateStats = (rsvpData: RSVPData[]) => {
-    const attending = rsvpData.filter((r) => r.attending).length;
-    const notAttending = rsvpData.filter((r) => !r.attending).length;
-    const totalGuests = rsvpData
+  const calculateStats = (RSVPWithUser: RSVPWithUser[]) => {
+    const attending = RSVPWithUser.filter((r) => r.attending).length;
+    const notAttending = RSVPWithUser.filter((r) => !r.attending).length;
+    const totalGuests = RSVPWithUser
       .filter((r) => r.attending)
       .reduce((sum, r) => sum + r.guests, 0);
 
     setStats({
-      total: rsvpData.length,
+      total: RSVPWithUser.length,
       attending,
       notAttending,
       totalGuests,
@@ -146,10 +146,10 @@ export default function AdminRSVPPage() {
                   rsvps.map((rsvp) => (
                     <tr key={rsvp.id} className="hover:bg-stone-50">
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-stone-800">
-                        {rsvp.name}
+                        {rsvp.user.name}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-stone-600">
-                        {rsvp.email}
+                        {rsvp.user.email}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
                         <span

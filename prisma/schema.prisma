@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -10,18 +7,27 @@ datasource db {
   url      = env("POSTGRES__DATABASE_URL")
 }
 
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String
+  password  String
+  maxGuests Int      @default(1)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  rsvp      RSVP?
+}
+
 model RSVP {
   id                  String   @id @default(cuid())
-  name                String
-  email               String
+  userId              String   @unique
   attending           Boolean
-  guests              Int      @default(1)
+  guests              Int
   dietaryRestrictions String?
   message             String?
   createdAt           DateTime @default(now())
   updatedAt           DateTime @updatedAt
-
-  @@index([email])
+  user                User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model Gift {
@@ -35,6 +41,6 @@ model Gift {
   purchasedBy String?
   purchasedAt DateTime?
   createdAt   DateTime  @default(now())
-  
+
   @@index([purchased])
 }
