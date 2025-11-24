@@ -6,6 +6,7 @@ export interface User {
   email: string;
   name: string;
   password: string;
+  role: 'USER' | 'ADMIN';
   maxGuests: number;
   createdAt: Date;
   updatedAt: Date;

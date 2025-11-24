@@ -19,9 +19,9 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       },
       async authorize(credentials) {
         console.log('=== AUTHORIZE STARTED ===');
-        console.log('Credentials received:', { 
-          email: credentials?.email, 
-          hasPassword: !!credentials?.password 
+        console.log('Credentials received:', {
+          email: credentials?.email,
+          hasPassword: !!credentials?.password
         });
 
         try {
@@ -58,13 +58,15 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           console.log('Authentication successful! Returning user:', {
             id: user.id,
             email: user.email,
-            name: user.name
+            name: user.name,
+            role: user.role
           });
 
           return {
             id: user.id,
             email: user.email,
             name: user.name,
+            role: user.role,
           };
         } catch (error) {
           console.error('=== AUTHORIZE ERROR ===');
@@ -72,7 +74,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           console.error('Error message:', error instanceof Error ? error.message : 'Unknown error');
           console.error('Full error:', error);
           console.error('=== END AUTHORIZE ERROR ===');
-          
+
           // Re-throw to see it in NextAuth error page
           throw error;
         }
@@ -80,20 +82,28 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     }),
   ],
   callbacks: {
+
     async jwt({ token, user }) {
       console.log('JWT callback - user:', !!user);
       if (user) {
         token.id = user.id;
+        token.role = user.role; // Ensure role is added to the token
       }
       return token;
     },
+    // In callbacks:
     async session({ session, token }) {
-      console.log('Session callback - token.id:', token.id);
-      if (session.user) {
-        session.user.id = token.id as string;
+      if (session.user && token.sub) {
+        session.user.id = token.sub;
+        // You need to fetch the role here or persist it in the token
+        const user = await prisma.user.findUnique({ where: { id: token.sub } });
+        if (user) {
+        session.user.role = user?.role;
+        }
       }
       return session;
-    },
+    }
+
   },
   debug: true,
 });
