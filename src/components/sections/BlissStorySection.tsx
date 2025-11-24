@@ -31,12 +31,14 @@ export const BlissStorySection: React.FC<BlissStorySectionProps> = ({
           </div>
           
           <div className="relative">
-            <div className="aspect-[4/5] rounded-sm overflow-hidden">
-              <ImagePlaceholder 
-                icon={Users} 
-                label="Couple Portrait" 
-                size="lg"
-              />
+            <div 
+              className="aspect-[4/5] rounded-lg shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] border border-stone-200/60 overflow-hidden"
+              style={{
+                backgroundImage: "url('/images/holidayPhoto.jpg')",
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+                }}
+            >
             </div>
             {/* Decorative shadow */}
             <div className="absolute -bottom-4 -right-4 w-full h-full bg-stone-300/30 rounded-sm -z-10"></div>

@@ -21,7 +21,6 @@ export const InvitationCard: React.FC<InvitationCardProps> = ({
   date,
   time,
   venue,
-  onRSVPClick,
   className = ''
 }) => {
   return (
@@ -59,7 +58,7 @@ export const InvitationCard: React.FC<InvitationCardProps> = ({
           
           {/* Header text - improved mobile readability */}
           <p className="text-[0.625rem] sm:text-[0.7rem] md:text-xs font-light tracking-[0.15em] sm:tracking-[0.2em] md:tracking-[0.25em] uppercase text-stone-700 mb-4 sm:mb-5 md:mb-8 leading-relaxed">
-            The honor of your presence is requested<br />at the wedding of
+            The Pleasure of your presence is requested<br />at the wedding of
           </p>
           
           {/* Circular Monogram with names and date */}
@@ -95,15 +94,17 @@ export const InvitationCard: React.FC<InvitationCardProps> = ({
           </div>
           
           {/* Decorative bottom border */}
-          <div className="w-10 sm:w-12 md:w-16 h-px bg-stone-400 mx-auto mt-4 sm:mt-5 md:mt-8 mb-4 sm:mb-4 md:mb-6"></div>
+          <div className="w-10 sm:w-12 md:w-16 h-px bg-stone-400 mx-auto mt-4 sm:mt-5 md:mt-8 mb-2 sm:mb-2 md:mb-3"></div>
           
           {/* RSVP button - improved mobile size */}
-          <button 
-            onClick={onRSVPClick}
-            className="text-[0.625rem] sm:text-[0.7rem] md:text-xs font-light tracking-[0.15em] uppercase text-stone-600 hover:text-stone-800 transition-colors duration-300 border-b border-stone-400 hover:border-stone-600 pb-1"
+          <p 
+            className="text-[0.625rem] sm:text-[0.7rem] md:text-xs font-light tracking-[0.15em] uppercase text-stone-600 hover:text-stone-900 transition-colors duration-300"
           >
-            RSVP
-          </button>
+            save the date
+          </p>
+                    
+          {/* Decorative bottom border */}
+          <div className="w-10 sm:w-12 md:w-16 h-px bg-stone-400 mx-auto mt-2 sm:mt-2 md:mt-3 mb-2 sm:mb-2 md:mb-3"></div>
         </div>
       </div>
     </div>

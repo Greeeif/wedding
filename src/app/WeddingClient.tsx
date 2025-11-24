@@ -34,7 +34,11 @@ const weddingData = {
   story: {
     title: "How We Met",
     paragraphs: [
-      "TBD"
+      "Two people, two worlds, running on parallel tracks — until fate intervened.",
+      "When we met, everything just clicked.",
+      "It all led to this —",
+      "We found something rare: a love that feels like coming home.",
+      "We can't wait to celebrate this milestone and all that the future holds!"
     ]
   },
   menuCategories: [
@@ -185,7 +189,7 @@ export function WeddingClient({ userName, userEmail, maxGuests }: WeddingClientP
 
         {/* RSVP Section */}
         <BlissRSVPSection
-            deadline="August 1st, 2024"
+            deadline="May 20th, 2026"
             userName={userName}
             userEmail={userEmail}
             maxGuests={maxGuests}

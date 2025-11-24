@@ -49,16 +49,22 @@ export const BlissRSVPSection: React.FC<BlissRSVPSectionProps> = ({
         <div className="grid md:grid-cols-2 gap-16 items-center">
           {/* Left side - Content */}
           <div>
-            <SectionHeader 
+            <SectionHeader
               title="Join Us"
               align="left"
-              subtitle="get Yarah to write something sweet here later"
             />
+            <p className="text-base text-stone-600 font-light leading-relaxed max-w-prose mt-4">
+              Get ready for an epic party! We're finally making it official,
+              and we want you there to join us in celebrating our love.
+            </p>
+            <p className="text-base text-stone-600 font-light leading-relaxed max-w-prose mt-4">
+              It wouldn't be us if it wasn't slightly unconventional,
+              so come prepared to be delighted and surprised at every turn.
+            </p>
             <p className="text-sm text-stone-500 font-light mt-6">
               Kindly respond by {deadline}
             </p>
           </div>
-
           {/* Right side - RSVP Form */}
           <BlissCard>
             <div className="space-y-6">
@@ -89,7 +95,7 @@ export const BlissRSVPSection: React.FC<BlissRSVPSectionProps> = ({
                   <label className="block text-sm font-light text-stone-700 mb-2 tracking-wide">
                     Number of Guests
                   </label>
-                  <select 
+                  <select
                     value={formData.guests}
                     onChange={(e) => updateField('guests', parseInt(e.target.value))}
                     className="w-full px-4 py-3 border border-stone-200 rounded-sm focus:outline-none focus:border-stone-400 transition-colors font-light"
