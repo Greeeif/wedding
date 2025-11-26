@@ -31,7 +31,7 @@ export const BlissStorySection: React.FC<BlissStorySectionProps> = ({
             />
             
             {/* Before flowers */}
-            <div className="space-y-6 text-stone-600 font-normal leading-relaxed text-center text-md">
+            <div className="space-y-6 text-stone-600 font-light leading-relaxed text-center text-md">
               {beforeFlowers.map((paragraph, index) => (
                 <p key={index}>{paragraph}</p>
               ))}
@@ -45,7 +45,7 @@ export const BlissStorySection: React.FC<BlissStorySectionProps> = ({
             )}
             
             {/* After flowers */}
-            <div className="space-y-6 text-stone-600 font-normal leading-relaxed text-center">
+            <div className="space-y-6 text-stone-600 font-light leading-relaxed text-center">
               {afterFlowers.map((paragraph, index) => (
                 <p key={`after-${index}`}>{paragraph}</p>
               ))}

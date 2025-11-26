@@ -53,18 +53,18 @@ export const BlissRSVPSection: React.FC<BlissRSVPSectionProps> = ({
               title="Join Us"
               align="left"
             />
-            <p className="text-base text-stone-600 font-normal leading-relaxed max-w-prose mt-4">
+            <p className="text-base text-stone-600 font-light leading-relaxed max-w-prose mt-4">
               We're finally making it official, and we’d love you there to join us in
               celebrating our love.
             </p>
-            <p className="text-base text-stone-600 font-normal leading-relaxed max-w-prose mt-4">
+            <p className="text-base text-stone-600 font-light leading-relaxed max-w-prose mt-4">
               It wouldn’t be us if it wasn’t slightly unconventional,
               so come prepared to be delighted and surprised at every turn.
             </p>
-            <p className="text-base text-stone-600 font-normal leading-relaxed max-w-prose mt-4">
+            <p className="text-base text-stone-600 font-light leading-relaxed max-w-prose mt-4">
               And most of all, get ready for an epic party! 
             </p>
-            <p className="text-sm text-stone-500 font-normal mt-6">
+            <p className="text-sm text-stone-500 font-light mt-6">
               Kindly respond by {deadline}
             </p>
           </div>
@@ -72,7 +72,7 @@ export const BlissRSVPSection: React.FC<BlissRSVPSectionProps> = ({
           <BlissCard>
             <div className="space-y-6">
               <div>
-                <label className="block text-sm font-normal text-stone-700 mb-3 tracking-wide">
+                <label className="block text-sm font-light text-stone-700 mb-3 tracking-wide">
                   Will you be attending?
                 </label>
                 <div className="flex space-x-4">
@@ -95,13 +95,13 @@ export const BlissRSVPSection: React.FC<BlissRSVPSectionProps> = ({
 
               {formData.attending && (
                 <div>
-                  <label className="block text-sm font-normal text-stone-700 mb-2 tracking-wide">
+                  <label className="block text-sm font-light text-stone-700 mb-2 tracking-wide">
                     Number of Guests
                   </label>
                   <select
                     value={formData.guests}
                     onChange={(e) => updateField('guests', parseInt(e.target.value))}
-                    className="w-full px-4 py-3 border border-stone-200 rounded-sm focus:outline-none focus:border-stone-400 transition-colors font-normal"
+                    className="w-full px-4 py-3 border border-stone-200 rounded-sm focus:outline-none focus:border-stone-400 transition-colors font-light"
                   >
                     <option value={1}>1 Guest</option>
                     <option value={2}>2 Guests</option>
