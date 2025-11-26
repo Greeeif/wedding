@@ -35,7 +35,7 @@ const weddingData = {
     title: "How We Met",
     paragraphs: [
       "Two different people, two separate lives, running on parallel tracks.",
-      "Until the moment fate intervened — when we met, everything just clicked, and it all led to this",
+      "Until the moment fate intervened — when we met, everything just clicked and it all led to this.",
       "We found something rare: a love that feels like coming home.",
       "𓆸𓆸𓆸",
       "We can’t wait to celebrate this milestone and all that the future holds!"
