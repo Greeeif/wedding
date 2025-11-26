@@ -41,6 +41,7 @@ export const BlissDetailsSection: React.FC<BlissDetailsSectionProps> = ({
       <div className="max-w-6xl mx-auto">
         <SectionHeader 
           title="Celebration Details"
+          align="left"
           className="mb-16"
         />
 
