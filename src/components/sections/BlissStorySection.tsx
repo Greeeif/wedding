@@ -23,7 +23,7 @@ export const BlissStorySection: React.FC<BlissStorySectionProps> = ({
               title={story.title || "Our Story"} 
               align="left"
             />
-            <div className="space-y-6 text-stone-600 font-light leading-relaxed">
+            <div className="space-y-4 text-stone-600 font-normal leading-relaxed text-center">
               {story.paragraphs.map((paragraph, index) => (
                 <p key={index}>{paragraph}</p>
               ))}
