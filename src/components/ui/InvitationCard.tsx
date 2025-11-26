@@ -58,7 +58,7 @@ export const InvitationCard: React.FC<InvitationCardProps> = ({
           
           {/* Header text - improved mobile readability */}
           <p className="text-[0.625rem] sm:text-[0.7rem] md:text-xs font-light tracking-[0.15em] sm:tracking-[0.2em] md:tracking-[0.25em] uppercase text-stone-700 mb-4 sm:mb-5 md:mb-8 leading-relaxed">
-            The Pleasure of your presence is requested<br />at the wedding of
+            The Pleasure of your company is requested<br />at the wedding of
           </p>
           
           {/* Circular Monogram with names and date */}

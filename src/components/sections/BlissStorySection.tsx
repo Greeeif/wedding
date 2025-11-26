@@ -14,6 +14,12 @@ export const BlissStorySection: React.FC<BlissStorySectionProps> = ({
   story,
   className = ''
 }) => {
+  // Split paragraphs around the flowers
+  const flowerIndex = story.paragraphs.findIndex(p => p.includes('𓆸'));
+  const beforeFlowers = flowerIndex !== -1 ? story.paragraphs.slice(0, flowerIndex) : story.paragraphs;
+  const flowers = flowerIndex !== -1 ? story.paragraphs[flowerIndex] : null;
+  const afterFlowers = flowerIndex !== -1 ? story.paragraphs.slice(flowerIndex + 1) : [];
+
   return (
     <section id="story" className={`py-20 px-6 bg-white ${className}`}>
       <div className="max-w-6xl mx-auto">
@@ -21,11 +27,27 @@ export const BlissStorySection: React.FC<BlissStorySectionProps> = ({
           <div>
             <SectionHeader 
               title={story.title || "Our Story"} 
-              align="left"
+              align="center"
             />
-            <div className="space-y-4 text-stone-600 font-normal leading-relaxed text-center">
-              {story.paragraphs.map((paragraph, index) => (
+            
+            {/* Before flowers */}
+            <div className="space-y-6 text-stone-600 font-normal leading-relaxed text-center text-md">
+              {beforeFlowers.map((paragraph, index) => (
                 <p key={index}>{paragraph}</p>
+              ))}
+            </div>
+            
+            {/* Flowers - bigger and centered */}
+            {flowers && (
+              <div className="my-4 text-center">
+                <p className="text-2xl md:text-4xl leading-none">{flowers}</p>
+              </div>
+            )}
+            
+            {/* After flowers */}
+            <div className="space-y-6 text-stone-600 font-normal leading-relaxed text-center">
+              {afterFlowers.map((paragraph, index) => (
+                <p key={`after-${index}`}>{paragraph}</p>
               ))}
             </div>
           </div>
@@ -37,7 +59,7 @@ export const BlissStorySection: React.FC<BlissStorySectionProps> = ({
                 backgroundImage: "url('/images/holidayPhoto.jpg')",
                 backgroundSize: 'cover',
                 backgroundPosition: 'center'
-                }}
+              }}
             >
             </div>
             {/* Decorative shadow */}

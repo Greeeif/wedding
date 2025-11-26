@@ -54,12 +54,15 @@ export const BlissRSVPSection: React.FC<BlissRSVPSectionProps> = ({
               align="left"
             />
             <p className="text-base text-stone-600 font-light leading-relaxed max-w-prose mt-4">
-              Get ready for an epic party! We're finally making it official,
-              and we want you there to join us in celebrating our love.
+              We're finally making it official, and we’d love you there to join us in
+              celebrating our love.
             </p>
             <p className="text-base text-stone-600 font-light leading-relaxed max-w-prose mt-4">
-              It wouldn't be us if it wasn't slightly unconventional,
+              It wouldn’t be us if it wasn’t slightly unconventional,
               so come prepared to be delighted and surprised at every turn.
+            </p>
+            <p className="text-base text-stone-600 font-light leading-relaxed max-w-prose mt-4">
+              And most of all, get ready for an epic party! 
             </p>
             <p className="text-sm text-stone-500 font-light mt-6">
               Kindly respond by {deadline}

@@ -19,7 +19,7 @@ const weddingData = {
     groom: "Alex"
   },
   date: "May 20th, 2027",
-  time: "1:00 PM",
+  time: "Thursday 1:00 PM",
   venue: {
     name: "Crowcombe Court",
     location: "Crowcombe, Taunton, Somerset, TA4 4AD",
@@ -35,8 +35,7 @@ const weddingData = {
     title: "How We Met",
     paragraphs: [
       "Two different people, two separate lives, running on parallel tracks.",
-      "Until the moment fate intervened.",
-      "When we met, everything just clicked, and it all led to this.",
+      "Until the moment fate intervened — when we met, everything just clicked, and it all led to this",
       "We found something rare: a love that feels like coming home.",
       "𓆸𓆸𓆸",
       "We can’t wait to celebrate this milestone and all that the future holds!"
