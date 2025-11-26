@@ -54,7 +54,7 @@ export const BlissStorySection: React.FC<BlissStorySectionProps> = ({
           
           <div className="relative">
             <div 
-              className="aspect-[4/5] rounded-lg shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] border border-stone-200/60 overflow-hidden"
+              className="aspect-[4/5] min-h-[400px] rounded-lg shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] border border-stone-200/60 overflow-hidden"
               style={{
                 backgroundImage: "url('/images/holidayPhoto.jpg')",
                 backgroundSize: 'cover',
