@@ -25,25 +25,25 @@ export const BlissStorySection: React.FC<BlissStorySectionProps> = ({
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div>
-            <SectionHeader 
-              title={story.title || "Our Story"} 
+            <SectionHeader
+              title={story.title || "Our Story"}
               align="center"
             />
-            
+
             {/* Before flowers */}
             <div className="space-y-6 text-stone-600 font-light leading-relaxed text-center text-md">
               {beforeFlowers.map((paragraph, index) => (
                 <p key={index}>{paragraph}</p>
               ))}
             </div>
-            
+
             {/* Flowers - bigger and centered */}
             {flowers && (
               <div className="my-4 text-center">
                 <p className="text-2xl md:text-4xl leading-none">{flowers}</p>
               </div>
             )}
-            
+
             {/* After flowers */}
             <div className="space-y-6 text-stone-600 font-light leading-relaxed text-center">
               {afterFlowers.map((paragraph, index) => (
@@ -51,16 +51,14 @@ export const BlissStorySection: React.FC<BlissStorySectionProps> = ({
               ))}
             </div>
           </div>
-          
+
           <div className="relative">
-            <div 
-              className="aspect-[4/5] min-h-[400px] rounded-lg shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] border border-stone-200/60 overflow-hidden"
-              style={{
-                backgroundImage: "url('/images/holidayPhoto.jpg')",
-                backgroundSize: 'cover',
-                backgroundPosition: 'center'
-              }}
-            >
+            <div className="relative aspect-[4/5] rounded-lg shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] border border-stone-200/60 overflow-hidden">
+              <img
+                src="/images/holidayPhoto.jpg"
+                alt="Holiday photo"
+                className="w-full h-full object-cover"
+              />
             </div>
             {/* Decorative shadow */}
             <div className="absolute -bottom-4 -right-4 w-full h-full bg-stone-300/30 rounded-sm -z-10"></div>
