@@ -49,7 +49,7 @@ export const BlissStorySection: React.FC<BlissStorySectionProps> = ({
               {afterFlowers.map((paragraph, index) => (
                 <p key={`after-${index}`}>{paragraph}</p>
               ))}
-            </div>
+            </div>  
           </div>
 
           <div className="relative">

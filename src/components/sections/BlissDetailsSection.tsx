@@ -26,7 +26,7 @@ export const BlissDetailsSection: React.FC<BlissDetailsSectionProps> = ({
     },
     {
       icon: Users,
-      title: "Reception", 
+      title: "Reception",
       details: ["6:00 PM", "Tasting Room", "Dinner & Dancing"]
     },
     {
@@ -39,23 +39,11 @@ export const BlissDetailsSection: React.FC<BlissDetailsSectionProps> = ({
   return (
     <section id="details" className={`py-20 px-6 bg-stone-50 ${className}`}>
       <div className="max-w-6xl mx-auto">
-        <SectionHeader 
+        <SectionHeader
           title="Celebration Details"
           align="left"
           className="mb-16"
         />
-
-        <div className="grid md:grid-cols-3 gap-12 mb-20">
-          {detailCards.map((card, index) => (
-            <DetailCard
-              key={index}
-              icon={card.icon}
-              title={card.title}
-              details={card.details}
-            />
-          ))}
-        </div>
-
         {/* Venue Information */}
         <BlissCard variant="elevated" className="p-12">
           <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -82,16 +70,23 @@ export const BlissDetailsSection: React.FC<BlissDetailsSectionProps> = ({
                 ))}
               </div>
             </div>
-            
-            <div className="aspect-[4/3] rounded-sm overflow-hidden">
-              <ImagePlaceholder 
-                icon={MapPin} 
-                label="Venue Photography" 
-                size="lg"
-              />
+
+            <div className="aspect-[4/3] rounded-lg overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)]  ">
+              <img src="/images/crowcombe.jpg" alt="venue picture" />
             </div>
           </div>
         </BlissCard>
+
+        <div className="grid md:grid-cols-3 gap-12 mt-20 mb-5">
+          {detailCards.map((card, index) => (
+            <DetailCard
+              key={index}
+              icon={card.icon}
+              title={card.title}
+              details={card.details}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );
