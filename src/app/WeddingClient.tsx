@@ -88,8 +88,8 @@ const navigationItems = [
   { id: 'details', label: 'Details' },
   { id: 'gallery', label: 'Gallery' },
   { id: 'rsvp', label: 'RSVP' },
-  { id: 'menu', label: 'Menu' },
-  { id: 'registry', label: 'Registry' }
+  // { id: 'menu', label: 'Menu' },
+  // { id: 'registry', label: 'Registry' }
 ];
 
 interface WeddingClientProps {
