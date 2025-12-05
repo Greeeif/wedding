@@ -16,9 +16,9 @@ export const EditorialGrid: React.FC<EditorialGridProps> = ({
   className = ''
 }) => {
   return (
-    <div className={`grid grid-cols-12 gap-4 h-[600px] ${className}`}>
+    <div className={`grid grid-cols-12 grid-rows-2 gap-4 h-[600px] md:h-[800px] ${className}`}>
       {items.map((item) => (
-        <div key={item.id} className={item.span}>
+        <div key={item.id} className={`${item.span} overflow-hidden`}>
           {item.content}
         </div>
       ))}
