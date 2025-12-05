@@ -77,7 +77,7 @@ export const BlissDetailsSection: React.FC<BlissDetailsSectionProps> = ({
           </div>
         </BlissCard>
 
-        <div className="grid md:grid-cols-3 gap-12 mt-20 mb-5">
+        {/* <div className="grid md:grid-cols-3 gap-12 mt-20 mb-5">
           {detailCards.map((card, index) => (
             <DetailCard
               key={index}
@@ -86,7 +86,7 @@ export const BlissDetailsSection: React.FC<BlissDetailsSectionProps> = ({
               details={card.details}
             />
           ))}
-        </div>
+        </div> */}
       </div>
     </section>
   );

@@ -37,9 +37,9 @@ export const BlissFooter: React.FC<BlissFooterProps> = ({
         </p>
         
         <div className="flex justify-center space-x-8 text-xs text-stone-400 font-light tracking-wide">
-          <span>Ceremony at 4:00 PM</span>
+          {/* <span>Ceremony at 4:00 PM</span>
           <span>•</span>
-          <span>Reception to follow</span>
+          <span>Reception to follow</span> */}
         </div>
       </div>
     </footer>

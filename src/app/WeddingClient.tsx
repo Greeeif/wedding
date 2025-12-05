@@ -24,7 +24,7 @@ const weddingData = {
     name: "Crowcombe Court",
     location: "Crowcombe, Taunton, Somerset, TA4 4AD",
     description: "Crowcombe Court is a magnificent Grade I listed Georgian manor house, nestled in the heart of Somerset on the edge of the breathtaking Quantock Hills.",
-    address: "Crowcombe, Taunton, Somerset, TA4 4AD",
+    address: "Crowcombe, Somerset, TA4 4AD",
     features: [
       "Historic Grade I Listed Architecture",
       "Accommodation available on-site",
@@ -197,13 +197,13 @@ export function WeddingClient({ userName, userEmail, maxGuests }: WeddingClientP
         />
 
         {/* Menu Section */}
-        <BlissMenuSection
+        {/* <BlissMenuSection
             menuCategories={weddingData.menuCategories}
             barService={weddingData.barService}
-        />
+        /> */}
 
         {/* Registry Section */}
-        <BlissRegistrySection registryItems={weddingData.registryItems} />
+        {/* <BlissRegistrySection registryItems={weddingData.registryItems} /> */}
 
         {/* Footer */}
         <BlissFooter
