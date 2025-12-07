@@ -2,7 +2,7 @@ import React from 'react';
 
 interface GridItem {
   id: string;
-  span: string; // Tailwind grid classes like "col-span-8"
+  span?: string; // Optional, kept for backwards compatibility
   content: React.ReactNode;
 }
 
@@ -16,9 +16,9 @@ export const EditorialGrid: React.FC<EditorialGridProps> = ({
   className = ''
 }) => {
   return (
-    <div className={`grid grid-cols-12 grid-rows-2 gap-4 h-[600px] md:h-[800px] ${className}`}>
+    <div className={`columns-1 md:columns-2 lg:columns-3 gap-4 ${className}`}>
       {items.map((item) => (
-        <div key={item.id} className={`${item.span} overflow-hidden`}>
+        <div key={item.id} className="break-inside-avoid mb-4">
           {item.content}
         </div>
       ))}

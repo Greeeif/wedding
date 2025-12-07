@@ -10,66 +10,66 @@ export const BlissGallerySection: React.FC<BlissGallerySectionProps> = ({
 }) => {
   const galleryItems = [
     {
-      id: 'main',
-      span: 'col-span-12 md:col-span-8 row-span-2',
+      id: 'img1',
       content: (
-        <div className="w-full h-full overflow-hidden rounded-lg">
-          <img
-            src="/images/IMG_3436.JPG"
-            alt="Engagement Portrait"
-            className="w-full h-full object-cover"
-          />
-        </div>
-      )
-    },
-    {
-      id: 'detail1',
-      span: 'col-span-6 md:col-span-4',
-      content: (
-        <div className="w-full h-full overflow-hidden rounded-lg">
+        <div className="relative w-full overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
           <img
             src="/images/DUVSE3002.JPG"
             alt="Couple Photo"
-            className="w-full h-full object-cover"
+            className="w-full h-auto object-cover"
+            loading="lazy"
           />
         </div>
       )
     },
     {
-      id: 'detail2',
-      span: 'col-span-6 md:col-span-4',
+      id: 'img2',
       content: (
-        <div className="w-full h-full overflow-hidden rounded-lg">
-          <img
-            src="/images/EBNFE6738.JPG"
-            alt="Couple Photo"
-            className="w-full h-full object-cover"
-          />
-        </div>
-      )
-    },
-    {
-      id: 'detail3',
-      span: 'col-span-6 md:col-span-4',
-      content: (
-        <div className="w-full h-full overflow-hidden rounded-lg">
+        <div className="relative w-full overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
           <img
             src="/images/IMG_2849.jpg"
             alt="Couple Photo"
-            className="w-full h-full object-cover"
+            className="w-full h-auto object-cover"
+            loading="lazy"
           />
         </div>
       )
     },
     {
-      id: 'detail4',
-      span: 'col-span-6 md:col-span-4',
+      id: 'img3',
       content: (
-        <div className="w-full h-full overflow-hidden rounded-lg">
+        <div className="relative w-full overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+          <img
+            src="/images/EBNFE6738.JPG"
+            alt="Couple Photo"
+            className="w-full h-auto object-cover"
+            loading="lazy"
+          />
+        </div>
+      )
+    },
+    {
+      id: 'img4',
+      content: (
+        <div className="relative w-full overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+          <img
+            src="/images/IMG_3436.JPG"
+            alt="Engagement Portrait"
+            className="w-full h-auto object-cover"
+            loading="lazy"
+          />
+        </div>
+      )
+    },
+    {
+      id: 'img5',
+      content: (
+        <div className="relative w-full overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
           <img
             src="/images/IMG_3855.jpg"
             alt="Couple Photo"
-            className="w-full h-full object-cover"
+            className="w-full h-auto object-cover"
+            loading="lazy"
           />
         </div>
       )
