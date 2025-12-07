@@ -1,6 +1,5 @@
 import React from 'react';
-import { Users, Gift, MapPin, Camera } from 'lucide-react';
-import { SectionHeader, EditorialGrid, ImagePlaceholder } from '@/components/ui';
+import { SectionHeader, EditorialGrid } from '@/components/ui';
 
 interface BlissGallerySectionProps {
   className?: string;
@@ -26,22 +25,54 @@ export const BlissGallerySection: React.FC<BlissGallerySectionProps> = ({
     {
       id: 'detail1',
       span: 'col-span-6 md:col-span-4',
-      content: <ImagePlaceholder icon={Gift} label="couple photo 1" size="md" />
+      content: (
+        <div className="w-full h-full overflow-hidden rounded-lg">
+          <img
+            src="/images/DUVSE3002.JPG"
+            alt="Couple Photo"
+            className="w-full h-full object-cover"
+          />
+        </div>
+      )
     },
     {
       id: 'detail2',
       span: 'col-span-6 md:col-span-4',
-      content: <ImagePlaceholder icon={Camera} label="couple photo 2" size="md" />
+      content: (
+        <div className="w-full h-full overflow-hidden rounded-lg">
+          <img
+            src="/images/EBNFE6738.JPG"
+            alt="Couple Photo"
+            className="w-full h-full object-cover"
+          />
+        </div>
+      )
     },
     {
       id: 'detail3',
       span: 'col-span-6 md:col-span-4',
-      content: <ImagePlaceholder icon={Camera} label="couple photo 3" size="md" />
+      content: (
+        <div className="w-full h-full overflow-hidden rounded-lg">
+          <img
+            src="/images/IMG_2849.jpg"
+            alt="Couple Photo"
+            className="w-full h-full object-cover"
+          />
+        </div>
+      )
     },
     {
       id: 'detail4',
       span: 'col-span-6 md:col-span-4',
-      content: <ImagePlaceholder icon={Camera} label="couple photo 4" size="md" />
+      content: (
+        <div className="w-full h-full overflow-hidden rounded-lg">
+          <img
+            src="/images/IMG_3855.jpg"
+            alt="Couple Photo"
+            className="w-full h-full object-cover"
+          />
+        </div>
+      )
     },
   ];
 
