@@ -16,7 +16,7 @@ export default async function HomePage() {
   const userEmail = session.user.email || undefined;
   
   // TODO: Fetch maxGuests from database based on user
-  const maxGuests = 2;
+  const maxGuests = 4;
 
   return (
     <WeddingClient 

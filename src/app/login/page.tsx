@@ -91,12 +91,6 @@ export default function LoginPage() {
               {loading ? 'Signing in...' : 'Sign In'}
             </button>
           </form>
-
-          <div className="mt-6 text-center">
-            <a href="/register" className="text-sm text-stone-600 hover:text-stone-800">
-              Don't have an account? Register here
-            </a>
-          </div>
         </div>
       </div>
     </div>
