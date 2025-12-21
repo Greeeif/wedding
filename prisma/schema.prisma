@@ -50,3 +50,14 @@ model Gift {
 
   @@index([purchased])
 }
+
+model RateLimit {
+  id        String   @id @default(cuid())
+  key       String   @unique  // IP address, user ID, or email
+  attempts  Int      @default(1)
+  resetAt   DateTime
+  createdAt DateTime @default(now())
+  
+  @@index([key])
+  @@index([resetAt])
+}

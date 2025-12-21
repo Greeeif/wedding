@@ -32,28 +32,3 @@ export async function PUT(
     return NextResponse.json({ success: false, error: 'Failed to update' }, { status: 500 });
   }
 }
-
-export async function DELETE(
-  request: NextRequest,
-  { params }: { params: Promise<{ id: string }> }
-) {
-  const session = await auth();
-
-  // 1. Check Login
-  if (!session?.user) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-  }
-
-  // 2. CHECK ADMIN ROLE (Vital!)
-  if (session.user.role !== 'ADMIN') {
-    return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
-  }
-
-  try {
-    const { id } = await params;
-    await giftQueries.delete(id);
-    return NextResponse.json({ success: true, message: 'Gift deleted' });
-  } catch (error) {
-    return NextResponse.json({ success: false, error: 'Failed to delete' }, { status: 500 });
-  }
-}

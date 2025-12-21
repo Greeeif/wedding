@@ -2,6 +2,7 @@ import NextAuth from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
 import { prisma } from '@/lib/db';
 import bcrypt from 'bcryptjs';
+import { checkRateLimit } from '@/lib/rate-limit';
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   session: {
@@ -23,16 +24,27 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             return null;
           }
           
+          // RATE LIMITING - before database query
+          const { allowed } = await checkRateLimit(
+            `login:${credentials.email}`,
+            5, // 5 attempts
+            15 * 60 * 1000 // 15 minutes
+          );
+
+          if (!allowed) {
+            return null; // Silently fail - don't reveal rate limiting
+          }
+
           const user = await prisma.user.findUnique({
             where: {
               email: credentials.email as string,
             },
           });
-          
+
           if (!user) {
             return null;
           }
-          
+
           const isPasswordValid = await bcrypt.compare(
             credentials.password as string,
             user.password
@@ -64,12 +76,12 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       }
       return token;
     },
-    
+
     async session({ session, token }) {
       // Read from token instead of database
       if (session.user) {
         session.user.id = token.sub as string;
-        session.user.role = token.role; // ✅ Read from token, not database
+        session.user.role = token.role;
       }
       return session;
     }

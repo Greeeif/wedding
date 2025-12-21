@@ -1,11 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/auth';
 import { prisma } from '@/lib/db';
+import { checkRateLimit } from '@/lib/rate-limit';
 
 export async function POST(request: NextRequest) {
   try {
     const session = await auth();
-    
+
     if (!session?.user?.id) {
       return NextResponse.json({
         success: false,
@@ -13,8 +14,22 @@ export async function POST(request: NextRequest) {
       }, { status: 401 });
     }
 
+    // RATE LIMITING
+    const { allowed, remaining } = await checkRateLimit(
+      `rsvp:${session.user.id}`,
+      10, // 10 submissions per window
+      60 * 60 * 1000 // 1 hour
+    );
+
+    if (!allowed) {
+      return NextResponse.json({
+        success: false,
+        error: 'Too many requests. Please try again later.'
+      }, { status: 429 });
+    }
+
     const body = await request.json();
-    
+
     if (body.attending === undefined) {
       return NextResponse.json({
         success: false,
@@ -28,7 +43,7 @@ export async function POST(request: NextRequest) {
     });
 
     let rsvp;
-    
+
     if (existingRSVP) {
       // Update existing RSVP
       rsvp = await prisma.rSVP.update({
@@ -52,18 +67,18 @@ export async function POST(request: NextRequest) {
         },
       });
     }
-    
+
     console.log('RSVP saved:', rsvp);
-    
+
     return NextResponse.json({
       success: true,
       message: existingRSVP ? 'RSVP updated successfully' : 'RSVP received successfully',
       data: rsvp
     });
-    
+
   } catch (error) {
     console.error('RSVP error:', error);
-    
+
     return NextResponse.json({
       success: false,
       error: 'Failed to submit RSVP'
@@ -74,7 +89,7 @@ export async function POST(request: NextRequest) {
 export async function GET() {
   try {
     const session = await auth();
-    
+
     if (!session?.user?.id) {
       return NextResponse.json({
         success: false,
@@ -95,14 +110,14 @@ export async function GET() {
         }
       }
     });
-    
+
     return NextResponse.json({
       success: true,
       data: rsvp
     });
   } catch (error) {
     console.error('Error fetching RSVP:', error);
-    
+
     return NextResponse.json({
       success: false,
       error: 'Failed to fetch RSVP'
