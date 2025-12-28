@@ -85,8 +85,6 @@ export async function POST(request: NextRequest) {
       });
     }
 
-    console.log('RSVP saved:', rsvp);
-
     return NextResponse.json({
       success: true,
       message: existingRSVP ? 'RSVP updated successfully' : 'RSVP received successfully',
