@@ -2,38 +2,55 @@ import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/auth';
 import { prisma } from '@/lib/db';
 import { checkRateLimit } from '@/lib/rate-limit';
+import { z } from 'zod';
+
+const rsvpInputSchema = z.object({
+  attending: z.boolean(),
+  guests: z.number().int().min(1).max(10), // Adjust max based on your needs
+  dietaryRestrictions: z.string().max(500).optional().transform(val => val?.trim()),
+  message: z.string().max(1000).optional().transform(val => val?.trim())
+});
 
 export async function POST(request: NextRequest) {
   try {
     const session = await auth();
-
     if (!session?.user?.id) {
-      return NextResponse.json({
-        success: false,
-        error: 'Unauthorized. Please log in first.'
-      }, { status: 401 });
+      return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
     }
 
-    // RATE LIMITING
-    const { allowed, remaining } = await checkRateLimit(
+    const { allowed } = await checkRateLimit(
       `rsvp:${session.user.id}`,
-      10, // 10 submissions per window
-      60 * 60 * 1000 // 1 hour
+      10,
+      60 * 60 * 1000
     );
-
     if (!allowed) {
-      return NextResponse.json({
-        success: false,
-        error: 'Too many requests. Please try again later.'
-      }, { status: 429 });
+      return NextResponse.json({ success: false, error: 'Too many requests' }, { status: 429 });
     }
 
     const body = await request.json();
-
-    if (body.attending === undefined) {
+    
+    // VALIDATE INPUT
+    const validationResult = rsvpInputSchema.safeParse(body);
+    if (!validationResult.success) {
       return NextResponse.json({
         success: false,
-        error: 'Missing required fields: attending status'
+        error: 'Invalid input',
+        details: validationResult.error.issues
+      }, { status: 400 });
+    }
+
+    const validatedData = validationResult.data;
+
+    // Check user's maxGuests limit
+    const user = await prisma.user.findUnique({
+      where: { id: session.user.id },
+      select: { maxGuests: true }
+    });
+
+    if (validatedData.guests > (user?.maxGuests || 1)) {
+      return NextResponse.json({
+        success: false,
+        error: `You can only bring up to ${user?.maxGuests} guests`
       }, { status: 400 });
     }
 
