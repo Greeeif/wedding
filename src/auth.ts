@@ -7,6 +7,8 @@ import { checkRateLimit } from '@/lib/rate-limit';
 export const { handlers, signIn, signOut, auth } = NextAuth({
   session: {
     strategy: 'jwt',
+    maxAge: 7 * 24 * 60 * 60,
+    updateAge: 24 * 60 * 60
   },
   pages: {
     signIn: '/login',
