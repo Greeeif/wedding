@@ -23,16 +23,15 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           if (!credentials?.email || !credentials?.password) {
             return null;
           }
-          
-          // RATE LIMITING - before database query
+
           const { allowed } = await checkRateLimit(
             `login:${credentials.email}`,
-            5, // 5 attempts
-            15 * 60 * 1000 // 15 minutes
+            5,
+            15 * 60 * 1000
           );
 
           if (!allowed) {
-            return null; // Silently fail - don't reveal rate limiting
+            return null;
           }
 
           const user = await prisma.user.findUnique({
@@ -61,8 +60,12 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             role: user.role,
           };
         } catch (error) {
-          // Re-throw to see it in NextAuth error page
-          throw error;
+          // Log the full error for debugging (only you can see server logs)
+          console.error('[AUTH ERROR]:', error);
+
+          // Return null instead of throwing - user just sees "Invalid credentials"
+          // This prevents leaking implementation details
+          return null;
         }
       },
     }),
