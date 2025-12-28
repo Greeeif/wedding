@@ -47,13 +47,24 @@ export async function checkRateLimit(
 }
 
 // Optional: Cleanup function to run periodically (removes expired records)
-export async function cleanupExpiredRateLimits() {
+export async function cleanupExpiredRateLimits(): Promise<number> {
   const now = new Date();
-  await prisma.rateLimit.deleteMany({
-    where: {
-      resetAt: {
-        lt: now,
+  
+  try {
+    // Delete all records where resetAt is in the past
+    const result = await prisma.rateLimit.deleteMany({
+      where: {
+        resetAt: {
+          lt: now, // "less than" now = expired
+        },
       },
-    },
-  });
+    });
+
+    console.log(`[CLEANUP] Deleted ${result.count} expired rate limit records`);
+    return result.count;
+  } catch (error) {
+    console.error('[CLEANUP ERROR]:', error);
+    throw error;
+  }
 }
+
