@@ -1,15 +1,26 @@
 // src/app/api/gifts/route.ts
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import { giftQueries } from '@/lib/db';
-import { auth } from '@/auth'; // Import auth
+import { auth } from '@/auth';
 
 export async function GET() {
-  // GET is public so guests can see the registry
   try {
+    const session = await auth();
+
+    if (!session?.user) {
+      return NextResponse.json(
+        { success: false, error: 'Unauthorized' },
+        { status: 401 }
+      );
+    }
+
     const gifts = await giftQueries.getAll();
     return NextResponse.json({ success: true, data: gifts });
   } catch (error) {
-    return NextResponse.json({ success: false, error: 'Failed' }, { status: 500 });
+    console.error('[GIFTS GET ERROR]:', error);
+    return NextResponse.json(
+      { success: false, error: 'Failed to fetch gifts' },
+      { status: 500 }
+    );
   }
 }
-
